@@ -113,7 +113,7 @@ const INDUSTRY_LOSS_FRACTION = {
 // Line conditioning savings potential by industry (% of total energy spend)
 // Represents: impedance matching (20,000 samples/sec), circulating current elimination,
 // phase current balancing, voltage stabilisation, and neutral current reduction
-// via HarmoniQ 600 Line Conditioners at individual load level
+// via HarmoniQ 600 HarmoniQ Alpha units at individual load level
 // Higher for motor-heavy industries with longer cable runs and more phase imbalance
 // Conservative: field results typically 1-2% higher than these values
 const INDUSTRY_LINE_CONDITIONING = {
@@ -215,7 +215,7 @@ function calculate() {
   const lossReductionPF = 1 - Math.pow(currentPF / targetPF, 2);
   const energySavingsPF = annualSpend * lossReductionPF * lossFraction;
 
-  // ── 2. Energy savings from harmonic elimination (Active Power Filter) ──
+  // ── 2. Energy savings from harmonic elimination (HarmoniQ Power Filter) ──
   // Reference: IEEE 519-2022 (Harmonic Control), IEEE C57.110-2018 (harmonic loss factors)
   // Harmonic RMS: I_total = I_fund × √(1 + THD²)
   // But harmonic losses are worse than basic I²R because:
@@ -227,7 +227,7 @@ function calculate() {
   const harmonicLossFactor = Math.pow(thdDecimal, 2) * 2.5;
   const energySavingsHarmonic = annualSpend * harmonicLossFactor * lossFraction;
 
-  // ── 3. Line conditioning savings (HarmoniQ 600 Line Conditioners) ──
+  // ── 3. Line conditioning savings (HarmoniQ 600 HarmoniQ Alpha) ──
   // Impedance matching at 20,000 samples/sec, phase current balancing,
   // circulating current elimination, neutral current reduction,
   // noise extraction pushing waste into 3rd harmonic for removal

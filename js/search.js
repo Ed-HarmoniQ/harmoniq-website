@@ -28,7 +28,7 @@
       description: 'Calculate how much your facility could save with HarmoniQ — by bill, spend, or facility size.',
       url: 'savings-calculator.html',
       category: 'Pages',
-      keywords: 'roi calculator savings return on investment monthly bill annual spend facility size industry power factor payback'
+      keywords: 'roi calculator savings return on investment monthly bill annual spend facility size industry power factor'
     },
     {
       title: 'Case Studies',
@@ -310,11 +310,11 @@
       keywords: 'installation process non-invasive no downtime one day quick setup retrofit plug and play commissioning'
     },
     {
-      title: 'Payback Period (12-18 Months)',
-      description: 'Typical payback within 12-18 months when purchasing the unit outright.',
-      url: 'faq.html#commercial',
+      title: 'Proven Energy Savings (10–25%)',
+      description: 'Verified savings across 120+ deployments, measured against metered baselines.',
+      url: 'case-studies.html',
       category: 'Features',
-      keywords: 'payback period 12 18 months return investment roi break even purchase buy outright'
+      keywords: 'savings proven verified metered baseline results energy reduction roi return investment'
     },
 
     // ── FAQ Items ──────────────────────────────────────────────

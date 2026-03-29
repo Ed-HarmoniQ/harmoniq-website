@@ -887,10 +887,10 @@ window.addEventListener('scroll', () => {
 
   // Which HQ phase primarily fixes each node (5 phases, 7 units)
   // Unit 1 (phase 0): Switchgear Power Booster — Transformer/Switchgear (0)
-  // Unit 2 (phase 1): MCC-2 branch — Line Conditioner (4,10,11)
-  // Unit 3 (phase 2): UPS/PDU branch — Line Conditioner (2,7,14)
-  // Units 4,5 (phase 3): MCC-1 branch — Line Conditioner on Motor, APF on VFD (3,8,9,15)
-  // Units 6,7 (phase 4): HVAC branch — Line Conditioner on AHU, APF on Chiller (5,6,12,13)
+  // Unit 2 (phase 1): MCC-2 branch — HarmoniQ Alpha (4,10,11)
+  // Unit 3 (phase 2): UPS/PDU branch — HarmoniQ Alpha (2,7,14)
+  // Units 4,5 (phase 3): MCC-1 branch — HarmoniQ Alpha on Motor, HarmoniQ Power Filter on VFD (3,8,9,15)
+  // Units 6,7 (phase 4): HVAC branch — HarmoniQ Alpha on AHU, HarmoniQ Power Filter on Chiller (5,6,12,13)
   var NODE_PRIMARY = { 0:0, 2:2, 3:3, 4:1, 5:4, 6:4, 7:2, 8:3, 9:3, 10:1, 11:1, 12:4, 13:4, 14:2, 15:3 };
   function nodeFix(id) {
     var base = tp(0) * 0.12;
