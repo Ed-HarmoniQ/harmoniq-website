@@ -31,18 +31,11 @@
       keywords: 'roi calculator savings return on investment monthly bill annual spend facility size industry power factor'
     },
     {
-      title: 'Case Studies',
-      description: 'Real results from industrial facilities using HarmoniQ technology.',
-      url: 'case-studies.html',
-      category: 'Pages',
-      keywords: 'case studies results proof evidence examples testimonials real world facilities customers'
-    },
-    {
       title: 'About Us',
-      description: 'Our story, leadership team, principles, and investor information — 120+ sites, 15+ countries.',
+      description: 'Our story, leadership team, and principles — 4,250+ units deployed, 15+ countries.',
       url: 'about.html',
       category: 'Pages',
-      keywords: 'about us company team leadership founders story mission oleg oscar edward principles investors 120 sites 15 countries'
+      keywords: 'about us company team leadership founders story mission oleg oscar edward principles 4250 units 15 countries'
     },
     {
       title: 'Insights & Blog',
@@ -311,8 +304,8 @@
     },
     {
       title: 'Proven Energy Savings (10–25%)',
-      description: 'Verified savings across 120+ deployments, measured against metered baselines.',
-      url: 'case-studies.html',
+      description: 'Verified savings across 4,250+ deployed units, measured against metered baselines.',
+      url: 'savings-calculator.html',
       category: 'Features',
       keywords: 'savings proven verified metered baseline results energy reduction roi return investment'
     },

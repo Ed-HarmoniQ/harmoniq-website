@@ -1,6 +1,6 @@
 /* ============================================================
    HarmoniQ Technologies — Savings Calculator (v3)
-   Based on ISO 50015 field data from 120+ deployments
+   Based on ISO 50015 field data from 4,250+ deployed units
 
    Savings model — 5 mechanisms:
    1. I²R loss reduction from power factor correction

@@ -595,7 +595,7 @@ document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observ
   // Q logo LED
   var qLogo = document.createElement('div');
   qLogo.className = 'page-transition-logo';
-  qLogo.innerHTML = '<img src="assets/logos/harmoniq-q.png" alt="" />';
+  qLogo.innerHTML = '<img src="/assets/logos/harmoniq-q-sm.png" alt="" />';
   overlay.appendChild(qLogo);
 
   document.body.appendChild(overlay);
@@ -723,6 +723,8 @@ window.addEventListener('scroll', () => {
   // ── Step walkthrough ──
   var currentStep = -1;
   var stepFade = 0;
+  var stepTime = 0;        // real-time ms when current step became fully visible
+  var STEP_AUTO_MS = 4000; // auto-advance after 4 seconds
   var targetCam = { cx: 0, cy: 0, z: 1 };
   var STEPS = [];
   var captionBounds = null;
@@ -747,7 +749,7 @@ window.addEventListener('scroll', () => {
   // ── Utilities ──
   function lerp(a, b, v) { return a + (b - a) * v; }
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
-  function tp(i) { var s = [0, 0.20, 0.40, 0.60, 0.80]; return clamp((morph - s[i]) / 0.20, 0, 1); }
+  function tp(i) { var s = [0, 0.16, 0.32, 0.48, 0.64, 0.80]; return clamp((morph - s[i]) / 0.20, 0, 1); }
   var TWO_PI = Math.PI * 2;
   function easeIO(x) { return x < 0.5 ? 4*x*x*x : 1 - Math.pow(-2*x+2, 3) / 2; }
   function fadeIn(nt, start, dur) { return clamp((nt - start) / dur, 0, 1); }
@@ -952,7 +954,7 @@ window.addEventListener('scroll', () => {
 
   function goToStep(idx) {
     if (idx < 0 || idx >= STEPS.length) return;
-    currentStep = idx; stepFade = 0;
+    currentStep = idx; stepFade = 0; stepTime = 0;
     var s = STEPS[idx];
     targetCam = { cx: s.cx, cy: s.cy, z: s.z };
     targetMorph = s.morph;
@@ -1386,36 +1388,32 @@ window.addEventListener('scroll', () => {
     ctx.fillStyle = 'rgba(0,210,140,0.90)';
     ctx.fillText(text, W/2, by+padY);
     ctx.shadowBlur = 0;
+    // Progress dots + step counter (left side of bottom row)
     var dotR=3, dotGap=14, dotsW=total*dotGap;
-    var dotsX = W/2-dotsW/2+dotGap/2, dotsY = by+bh-13;
+    var dotsX = bx+padX, dotsY = by+bh-13;
     for (var di=0; di<total; di++) {
       ctx.beginPath(); ctx.arc(dotsX+di*dotGap, dotsY, dotR, 0, TWO_PI);
       ctx.fillStyle = di===step ? 'rgba(0,210,140,0.85)' : 'rgba(255,255,255,0.10)';
       ctx.fill();
     }
-    // Nav arrows (bottom-left, discrete)
-    var arSz = Math.max(10, Math.min(13, W*0.011));
-    var arY = by+bh-arSz/2-8;
-    var arLx = bx+14, arRx = bx+14+arSz+6;
-    arrowLeftBounds = { x: arLx-4, y: arY-arSz/2-4, w: arSz+8, h: arSz+8 };
-    arrowRightBounds = { x: arRx-4, y: arY-arSz/2-4, w: arSz+8, h: arSz+8 };
-    // Left arrow
-    ctx.fillStyle = step > 0 ? 'rgba(0,185,128,0.35)' : 'rgba(255,255,255,0.06)';
-    ctx.font = '600 '+arSz+'px Inter, sans-serif';
-    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-    ctx.fillText('\u25C0', arLx+arSz/2, arY);
-    // Right arrow
-    ctx.fillStyle = 'rgba(0,185,128,0.35)';
-    ctx.fillText(step<total-1 ? '\u25B6' : '\u2713', arRx+arSz/2, arY);
-    // Click to continue prompt (bottom-right)
-    var promptSz = Math.max(8, Math.min(10, W*0.008));
-    var promptPulse = 0.55 + Math.sin(t * 2.5) * 0.20;
-    ctx.font = '500 '+promptSz+'px JetBrains Mono, Consolas, monospace';
-    ctx.textAlign = 'right'; ctx.textBaseline = 'bottom';
-    ctx.shadowBlur = 8; ctx.shadowColor = 'rgba(0,185,128,0.4)';
-    ctx.fillStyle = 'rgba(0,210,140,' + promptPulse + ')';
-    ctx.fillText(step<total-1 ? 'click to continue \u25B6' : 'click to finish \u2713', bx+bw-14, by+bh-8);
+    // Countdown bar — thin line under the caption box that shrinks over 4s
+    var elapsed = stepTime > 0 ? performance.now() - stepTime : 0;
+    var progress = stepTime > 0 ? clamp(1 - elapsed / STEP_AUTO_MS, 0, 1) : 1;
+    var barY = by + bh - 2, barH = 2;
+    ctx.fillStyle = 'rgba(0,210,140,0.35)';
+    rrect(bx + 4, barY, (bw - 8) * progress, barH, 1); ctx.fill();
+    // "Click anywhere to continue" — right-aligned, bright pulsing text
+    var promptPulse = 0.70 + Math.sin(t * 2.8) * 0.30;
+    var nudge = Math.sin(t * 3.0) * 2.5;
+    var promptSz = Math.max(11, Math.min(14, W*0.012));
+    var promptStr = step<total-1 ? 'Click to skip  \u25B6' : 'Click to finish  \u2713';
+    ctx.font = '600 '+promptSz+'px Inter, system-ui, sans-serif';
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    ctx.shadowBlur = 10; ctx.shadowColor = 'rgba(0,210,140,0.5)';
+    ctx.fillStyle = 'rgba(0,210,140,' + promptPulse.toFixed(3) + ')';
+    ctx.fillText(promptStr, bx+bw-padX + nudge, dotsY);
     ctx.shadowBlur = 0;
+    arrowLeftBounds = null; arrowRightBounds = null;
     ctx.restore();
   }
 
@@ -1844,7 +1842,14 @@ window.addEventListener('scroll', () => {
     else if (Math.abs(morph - targetMorph) < 0.003) morph = targetMorph;
     else morph += (targetMorph > morph ? spd : -spd);
 
-    if (currentStep >= 0) stepFade = Math.min(1, stepFade + 0.025);
+    if (currentStep >= 0) {
+      stepFade = Math.min(1, stepFade + 0.025);
+      // Auto-advance timer: start counting once step is fully visible
+      if (stepFade >= 1) {
+        if (stepTime === 0) stepTime = performance.now();
+        else if (performance.now() - stepTime >= STEP_AUTO_MS) advanceStep();
+      }
+    }
     else stepFade = Math.max(0, stepFade - 0.05);
 
     // Update particles
