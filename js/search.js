@@ -17,11 +17,18 @@
       keywords: 'home homepage main landing electricity waste savings power optimization patented hardware heat industrial energy'
     },
     {
-      title: 'How It Works',
-      description: 'Learn how HarmoniQ\'s electromagnetic waveform injection technology optimizes your power system.',
+      title: 'Product',
+      description: 'The HarmoniQ Product Suite — three hardware devices and a real-time software platform.',
       url: 'how-it-works.html',
       category: 'Pages',
-      keywords: 'how it works technology waveform injection electromagnetic power quality reactive energy harmonics'
+      keywords: 'product how it works technology hardware devices alpha booster filter software platform power quality reactive energy harmonics'
+    },
+    {
+      title: 'Industries',
+      description: 'Power optimization for every sector — manufacturing, healthcare, mining, oil & gas, and 11 more.',
+      url: 'industries.html',
+      category: 'Pages',
+      keywords: 'industries sectors all manufacturing healthcare mining oil gas cold storage hotels airports ports steel pharma universities logistics food beverage commercial real estate water utilities'
     },
     {
       title: 'Savings Calculator',
@@ -277,7 +284,7 @@
     {
       title: 'Industries We Serve',
       description: 'Manufacturing, cold storage, mining, healthcare, data centres, commercial real estate, and more.',
-      url: 'index.html#industries',
+      url: 'industries.html',
       category: 'Features',
       keywords: 'industries sectors manufacturing cold storage refrigeration mining quarrying healthcare hospital data centre commercial real estate hotel retail food processing water treatment oil gas chemical pharmaceutical textile cement steel'
     },

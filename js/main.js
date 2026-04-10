@@ -592,18 +592,12 @@ document.querySelectorAll('[data-counter]').forEach(el => counterObserver.observ
     col.style.animationDelay = (i * STAGGER) + 'ms';
     overlay.appendChild(col);
   }
-  // Q logo LED — inline SVG so it works from any path
+  // Q emblem — derive asset path from this script's own src
   var qLogo = document.createElement('div');
   qLogo.className = 'page-transition-logo';
-  qLogo.innerHTML = '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="page-transition-q">'
-    + '<defs><mask id="qWaveMask"><rect width="200" height="200" fill="white"/>'
-    + '<path d="M 30 105 L 60 105 L 72 80 L 82 125 L 92 70 L 102 130 L 112 78 L 122 120 L 132 95 L 145 105 L 170 105" '
-    + 'stroke="black" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/></mask></defs>'
-    + '<circle cx="95" cy="95" r="70" stroke="#0E7A46" stroke-width="14" fill="none" mask="url(#qWaveMask)"/>'
-    + '<path d="M 30 105 L 60 105 L 72 80 L 82 125 L 92 70 L 102 130 L 112 78 L 122 120 L 132 95 L 145 105 L 170 105" '
-    + 'stroke="#0E7A46" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
-    + '<rect x="135" y="140" width="14" height="38" rx="4" fill="#0E7A46" transform="rotate(-45 142 159)"/>'
-    + '</svg>';
+  var scriptEl = document.querySelector('script[src*="main.js"]');
+  var assetBase = scriptEl ? scriptEl.getAttribute('src').replace(/js\/main\.js.*/, '') : '';
+  qLogo.innerHTML = '<img src="' + assetBase + 'assets/q-emblem.png" alt="" />';
   overlay.appendChild(qLogo);
 
   document.body.appendChild(overlay);
