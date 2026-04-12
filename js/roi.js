@@ -17,21 +17,21 @@
 // Average industrial electricity rates by country (USD/kWh, 2025)
 const RATES = {
   // Europe
-  'Germany': 0.16, 'France': 0.11, 'UK': 0.13, 'Italy': 0.14, 'Spain': 0.12,
-  'Netherlands': 0.13, 'Belgium': 0.14, 'Poland': 0.09, 'Sweden': 0.07,
+  'Germany': 0.17, 'France': 0.11, 'UK': 0.13, 'Italy': 0.18, 'Spain': 0.12,
+  'Netherlands': 0.13, 'Belgium': 0.12, 'Poland': 0.11, 'Sweden': 0.07,
   'Norway': 0.05, 'Denmark': 0.10, 'Finland': 0.08, 'Austria': 0.11,
-  'Switzerland': 0.12, 'Ireland': 0.14, 'Portugal': 0.11, 'Greece': 0.12,
-  'Czech Republic': 0.10, 'Romania': 0.09, 'Hungary': 0.10, 'Turkey': 0.08,
+  'Switzerland': 0.12, 'Ireland': 0.20, 'Portugal': 0.11, 'Greece': 0.12,
+  'Czech Republic': 0.12, 'Romania': 0.09, 'Hungary': 0.10, 'Turkey': 0.08,
   // Middle East & Africa
   'UAE': 0.065, 'Saudi Arabia': 0.048, 'Qatar': 0.030, 'Kuwait': 0.020,
   'Bahrain': 0.035, 'Oman': 0.045, 'Israel': 0.10, 'Egypt': 0.035,
   'South Africa': 0.07, 'Nigeria': 0.09, 'Kenya': 0.11, 'Morocco': 0.10,
   // Americas
-  'USA': 0.08, 'Canada': 0.07, 'Mexico': 0.07, 'Brazil': 0.09,
+  'USA': 0.08, 'Canada': 0.07, 'Mexico': 0.09, 'Brazil': 0.10,
   'Colombia': 0.08, 'Chile': 0.09, 'Argentina': 0.06,
   // Asia-Pacific
-  'Australia': 0.12, 'New Zealand': 0.11, 'Japan': 0.14, 'South Korea': 0.10,
-  'China': 0.08, 'India': 0.07, 'Singapore': 0.12, 'Malaysia': 0.06,
+  'Australia': 0.12, 'New Zealand': 0.11, 'Japan': 0.14, 'South Korea': 0.12,
+  'China': 0.08, 'India': 0.08, 'Singapore': 0.12, 'Malaysia': 0.06,
   'Thailand': 0.08, 'Vietnam': 0.07, 'Philippines': 0.10, 'Indonesia': 0.07,
   // Fallback
   'Other': 0.10,
@@ -152,6 +152,30 @@ const PF_PENALTY_RATES = {
   'China': 0.05, 'India': 0.06, 'Singapore': 0.03, 'Malaysia': 0.04,
   'Thailand': 0.04, 'Vietnam': 0.04, 'Philippines': 0.05, 'Indonesia': 0.05,
   'Other': 0.03,
+};
+
+// Grid emission factors by country (kg CO₂ per kWh)
+// Reference: IEA Emission Factors 2023/2024
+const CO2_FACTORS = {
+  // Europe
+  'Germany': 0.385, 'France': 0.056, 'UK': 0.210, 'Italy': 0.330, 'Spain': 0.160,
+  'Netherlands': 0.340, 'Belgium': 0.165, 'Poland': 0.660, 'Sweden': 0.030,
+  'Norway': 0.026, 'Denmark': 0.120, 'Finland': 0.085, 'Austria': 0.130,
+  'Switzerland': 0.030, 'Ireland': 0.296, 'Portugal': 0.170, 'Greece': 0.350,
+  'Czech Republic': 0.430, 'Romania': 0.280, 'Hungary': 0.230, 'Turkey': 0.440,
+  // Middle East & Africa
+  'UAE': 0.410, 'Saudi Arabia': 0.550, 'Qatar': 0.490, 'Kuwait': 0.580,
+  'Bahrain': 0.500, 'Oman': 0.480, 'Israel': 0.460, 'Egypt': 0.450,
+  'South Africa': 0.900, 'Nigeria': 0.380, 'Kenya': 0.120, 'Morocco': 0.610,
+  // Americas
+  'USA': 0.390, 'Canada': 0.130, 'Mexico': 0.420, 'Brazil': 0.075,
+  'Colombia': 0.140, 'Chile': 0.330, 'Argentina': 0.310,
+  // Asia-Pacific
+  'Australia': 0.580, 'New Zealand': 0.100, 'Japan': 0.470, 'South Korea': 0.420,
+  'China': 0.540, 'India': 0.710, 'Singapore': 0.400, 'Malaysia': 0.560,
+  'Thailand': 0.470, 'Vietnam': 0.460, 'Philippines': 0.510, 'Indonesia': 0.630,
+  // Fallback
+  'Other': 0.400,
 };
 
 function getEffectivePF() {
@@ -282,10 +306,20 @@ function calculate() {
   const annualDepreciation = estEquipValue / 20;
   const equipLifeSaving = annualDepreciation * lifeExtensionPct;
 
+  // ── 8. Carbon footprint reduction ──
+  // Reference: IEA grid emission factors (2023/2024)
+  // Only real energy savings (I²R + harmonic + line conditioning), not billing savings
+  const co2Factor = CO2_FACTORS[country] || 0.400;
+  const kwhSaved = totalEnergySaving / rate;
+  const co2Tonnes = (kwhSaved * co2Factor) / 1000;
+  const equivalentTrees = Math.round(co2Tonnes * 1000 / 22); // EPA: 1 mature tree ≈ 22 kg CO₂/yr
+  const carbonCredits = co2Tonnes; // 1 carbon credit = 1 tonne CO₂e (Verra VCS / Gold Standard)
+
   // ── Format & display ──
   const fmtUSD = (v) => '$' + Math.round(v).toLocaleString();
   const fmtPct = (v) => (v * 100).toFixed(1) + '%';
 
+  // Financial savings panel
   setResult('roi-result-savings-rate',    fmtPct(totalSavingsRate));
   setResult('roi-result-energy-saving',   fmtUSD(energySavingsPF + energySavingsHarmonic));
   setResult('roi-result-linecond-saving', fmtUSD(energySavingsLineCond));
@@ -293,12 +327,6 @@ function calculate() {
   setResult('roi-result-demand-saving',   fmtUSD(demandSaving));
   setResult('roi-result-total',           fmtUSD(totalEnergySavings));
 
-  // Equipment life section (separate)
-  setResult('roi-result-delta-t',    '−' + deltaTClamped.toFixed(1) + '°C');
-  setResult('roi-result-life-ext',   '+' + (lifeExtensionPct * 100).toFixed(0) + '%');
-  setResult('roi-result-equip-value', fmtUSD(equipLifeSaving) + '/yr');
-
-  // Headline = energy savings only
   const headline = document.getElementById('roi-headline-value');
   if (headline) {
     headline.textContent = fmtUSD(totalEnergySavings);
@@ -306,22 +334,58 @@ function calculate() {
     requestAnimationFrame(() => { headline.style.animation = ''; });
   }
 
-  // Show results
-  const resultsPanel = document.querySelector('.roi-results');
-  if (resultsPanel) {
-    resultsPanel.style.display = '';
-    resultsPanel.style.animation = 'none';
-    requestAnimationFrame(() => {
-      resultsPanel.style.animation = 'fadeUp 0.4s ease forwards';
-    });
+  // Equipment life panel
+  setResult('roi-result-delta-t',     '\u2212' + deltaTClamped.toFixed(1) + '\u00B0C');
+  setResult('roi-result-life-ext',    lifeMultiplier.toFixed(1) + 'x');
+  setResult('roi-result-extra-years', '+' + (20 * lifeExtensionPct).toFixed(1) + ' years');
+  setResult('roi-result-equip-total', fmtUSD(estEquipValue));
+  setResult('roi-result-equip-value', fmtUSD(equipLifeSaving) + '/yr');
+
+  const headlineEquip = document.getElementById('roi-headline-equip');
+  if (headlineEquip) {
+    headlineEquip.textContent = lifeMultiplier.toFixed(1) + 'x longer life';
+    headlineEquip.style.animation = 'none';
+    requestAnimationFrame(() => { headlineEquip.style.animation = ''; });
   }
+
+  // Carbon footprint panel
+  setResult('roi-result-kwh-saved',       Math.round(kwhSaved).toLocaleString() + ' kWh');
+  setResult('roi-result-emission-factor', co2Factor.toFixed(3) + ' kg/kWh');
+  setResult('roi-result-co2',             co2Tonnes.toFixed(1) + ' tonnes');
+  setResult('roi-result-credits',         carbonCredits.toFixed(1) + ' credits');
+  setResult('roi-result-trees',           equivalentTrees.toLocaleString() + ' trees');
+
+  const headlineCO2 = document.getElementById('roi-headline-co2');
+  if (headlineCO2) {
+    headlineCO2.textContent = co2Tonnes.toFixed(1) + ' t CO\u2082/yr';
+    headlineCO2.style.animation = 'none';
+    requestAnimationFrame(() => { headlineCO2.style.animation = ''; });
+  }
+
+  // Cross-reference summary values
+  setResult('roi-xref-financial', fmtUSD(totalEnergySavings) + '/yr');
+  setResult('roi-xref-equipment', lifeMultiplier.toFixed(1) + 'x life');
+  setResult('roi-xref-carbon', co2Tonnes.toFixed(1) + ' t CO\u2082/yr');
+
+  // Animate whichever panel is currently active
+  document.querySelectorAll('.roi-panel').forEach(p => {
+    if (p.style.display !== 'none') {
+      p.style.animation = 'none';
+      requestAnimationFrame(() => { p.style.animation = 'fadeUp 0.4s ease forwards'; });
+    }
+  });
 }
 
 function clearResults() {
-  const ids = ['roi-result-savings-rate', 'roi-result-energy-saving', 'roi-result-linecond-saving',
-    'roi-result-pf-saving', 'roi-result-demand-saving', 'roi-result-total',
-    'roi-result-delta-t', 'roi-result-life-ext',
-    'roi-result-equip-value', 'roi-headline-value'];
+  const ids = [
+    'roi-result-savings-rate', 'roi-result-energy-saving', 'roi-result-linecond-saving',
+    'roi-result-pf-saving', 'roi-result-demand-saving', 'roi-result-total', 'roi-headline-value',
+    'roi-result-delta-t', 'roi-result-life-ext', 'roi-result-extra-years',
+    'roi-result-equip-total', 'roi-result-equip-value', 'roi-headline-equip',
+    'roi-result-kwh-saved', 'roi-result-emission-factor', 'roi-result-co2',
+    'roi-result-credits', 'roi-result-trees', 'roi-headline-co2',
+    'roi-xref-financial', 'roi-xref-equipment', 'roi-xref-carbon',
+  ];
   ids.forEach(id => setResult(id, '—'));
 }
 
@@ -342,7 +406,14 @@ function updatePFHint() {
   const pfVal = document.getElementById('roi-pf').value;
   const hint = document.getElementById('pf-industry-hint');
   if (hint) {
-    hint.style.display = pfVal === 'unknown' ? '' : 'none';
+    if (pfVal === 'unknown') {
+      const industry = document.getElementById('roi-industry').value;
+      const estPF = INDUSTRY_PF[industry] || 0.85;
+      hint.style.display = '';
+      hint.textContent = 'Estimating your power factor as ' + estPF.toFixed(2) + ', typical for facilities in your selected industry.';
+    } else {
+      hint.style.display = 'none';
+    }
   }
   calculate();
 }
@@ -359,6 +430,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('roi-input-mode').addEventListener('change', updateInputMode);
   document.getElementById('roi-pf').addEventListener('change', updatePFHint);
+  document.getElementById('roi-industry').addEventListener('change', updatePFHint);
+
+  // Panel toggle
+  function switchPanel(panelName) {
+    document.querySelectorAll('.roi-pill').forEach(p => {
+      p.classList.toggle('active', p.dataset.panel === panelName);
+    });
+    document.querySelectorAll('.roi-panel').forEach(p => p.style.display = 'none');
+    const target = document.getElementById('panel-' + panelName);
+    if (target) {
+      target.style.display = '';
+      target.style.animation = 'none';
+      requestAnimationFrame(() => { target.style.animation = 'fadeUp 0.4s ease forwards'; });
+    }
+    // Show cross-refs for the other two panels
+    document.querySelectorAll('.roi-cross-ref').forEach(ref => {
+      ref.style.display = ref.dataset.panel === panelName ? 'none' : '';
+    });
+  }
+
+  document.querySelectorAll('.roi-pill').forEach(pill => {
+    pill.addEventListener('click', () => switchPanel(pill.dataset.panel));
+  });
+
+  // Cross-reference click → switch to that panel
+  document.querySelectorAll('.roi-cross-ref').forEach(ref => {
+    ref.addEventListener('click', () => switchPanel(ref.dataset.panel));
+  });
 
   updateInputMode();
   updatePFHint();

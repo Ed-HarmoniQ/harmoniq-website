@@ -196,13 +196,13 @@
           <div class="roi-field">
             <label for="roi-pf">Current Power Factor <span style="font-weight: 400; text-transform: none; letter-spacing: 0;">(if known)</span></label>
             <select id="roi-pf">
-              <option value="unknown" selected>I don't know — estimate for me</option>
-              <option value="0.95">0.95 — Good (near unity)</option>
-              <option value="0.90">0.90 — Typical</option>
-              <option value="0.85">0.85 — Below average</option>
-              <option value="0.80">0.80 — Poor (penalties likely)</option>
-              <option value="0.75">0.75 — Very poor</option>
-              <option value="0.70">0.70 — Critical</option>
+              <option value="unknown" selected>I don't know — estimate for my industry</option>
+              <option value="0.95">0.95 — Near unity</option>
+              <option value="0.90">0.90 — Above penalty threshold</option>
+              <option value="0.85">0.85 — Moderate</option>
+              <option value="0.80">0.80 — Penalty threshold (most utilities)</option>
+              <option value="0.75">0.75 — High reactive load</option>
+              <option value="0.70">0.70 — Very high reactive load</option>
             </select>
             <div id="pf-industry-hint" style="margin-top: 6px; font-size: 0.78rem; color: var(--text-muted); font-style: italic;">
               We'll estimate your power factor based on typical facilities in your industry. Most sites don't know this number, and that's fine.
@@ -215,8 +215,15 @@
         </div>
 
         <div>
-          <!-- Main results: Energy savings only -->
-          <div class="roi-results">
+          <!-- Calculator mode toggle -->
+          <div class="roi-pill-toggle">
+            <button class="roi-pill active" data-panel="financial">Financial Savings</button>
+            <button class="roi-pill" data-panel="equipment">Equipment Life</button>
+            <button class="roi-pill" data-panel="carbon">Carbon Reduction</button>
+          </div>
+
+          <!-- Panel 1: Financial Savings -->
+          <div class="roi-results roi-panel" id="panel-financial">
             <div class="roi-result-title">Estimated Annual Energy Savings</div>
 
             <div class="roi-result-item">
@@ -251,28 +258,86 @@
             </div>
           </div>
 
-          <!-- Equipment life extension: separate, smaller section -->
-          <div style="margin-top: 16px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);">
-            <div style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 12px;">Additional Benefit — Equipment Life Extension</div>
-            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 12px;">
-              Cooler-running equipment lasts longer. By reducing current and harmonics, HarmoniQ lowers winding temperatures — extending the life of motors, transformers, and cabling.
+          <!-- Panel 2: Equipment Life Extension -->
+          <div class="roi-results roi-panel" id="panel-equipment" style="display: none;">
+            <div class="roi-result-title">Equipment Life Extension</div>
+            <div style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 16px;">
+              By reducing current and harmonics, HarmoniQ lowers winding temperatures — extending the life of motors, transformers, and cabling per the Arrhenius insulation aging model.
             </div>
-            <div style="display: flex; gap: 12px;">
-              <div style="flex: 1; padding: 10px; background: var(--accent-dim); border-radius: var(--radius-sm); text-align: center;">
-                <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;">Est. Temp Reduction</div>
-                <div style="font-size: 1.05rem; font-weight: 700; color: var(--accent);" id="roi-result-delta-t">—</div>
-              </div>
-              <div style="flex: 1; padding: 10px; background: var(--accent-dim); border-radius: var(--radius-sm); text-align: center;">
-                <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;">Equipment Life</div>
-                <div style="font-size: 1.05rem; font-weight: 700; color: var(--accent);" id="roi-result-life-ext">—</div>
-              </div>
-              <div style="flex: 1; padding: 10px; background: var(--accent-dim); border-radius: var(--radius-sm); text-align: center;">
-                <div style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px;">Est. CapEx Saving</div>
-                <div style="font-size: 1.05rem; font-weight: 700; color: var(--accent);" id="roi-result-equip-value">—</div>
-              </div>
+
+            <div class="roi-result-item">
+              <span class="roi-result-label">Winding Temperature Reduction</span>
+              <span class="roi-result-value" id="roi-result-delta-t">—</span>
             </div>
-            <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 8px; font-style: italic;">
-              <a href="articles/arrhenius-rule.html" class="std-ref">Based on the Arrhenius relationship per IEEE 117, NEMA MG 1-2016, and IEC 60085: every 10°C reduction in winding temperature doubles insulation life.</a>
+            <div class="roi-result-item">
+              <span class="roi-result-label">Insulation Life Extension</span>
+              <span class="roi-result-value" id="roi-result-life-ext">—</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">Additional Service Life</span>
+              <span class="roi-result-value" id="roi-result-extra-years">—</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">Protected Equipment Value</span>
+              <span class="roi-result-value" id="roi-result-equip-total">—</span>
+            </div>
+
+            <div class="roi-result-item" style="border-top: 2px solid var(--accent); margin-top: 8px; padding-top: 16px;">
+              <span class="roi-result-label" style="font-weight: 700; color: var(--text-primary);">Annual CapEx Saving</span>
+              <span class="roi-result-value" id="roi-result-equip-value" style="font-size: 1.3rem;">—</span>
+            </div>
+            <div class="roi-headline">
+              <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 6px;">Equipment Life Extension</div>
+              <div class="roi-headline-value" id="roi-headline-equip">—</div>
+              <div class="roi-headline-label">Based on <a href="articles/arrhenius-rule.html" class="std-ref" style="color: inherit; text-decoration: underline;">IEEE 117 / Arrhenius</a> insulation aging model</div>
+            </div>
+          </div>
+
+          <!-- Panel 3: Carbon Footprint Reduction -->
+          <div class="roi-results roi-panel" id="panel-carbon" style="display: none;">
+            <div class="roi-result-title">Carbon Footprint Reduction</div>
+
+            <div class="roi-result-item">
+              <span class="roi-result-label">Annual Energy Saved</span>
+              <span class="roi-result-value" id="roi-result-kwh-saved">—</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">Grid Emission Factor</span>
+              <span class="roi-result-value" id="roi-result-emission-factor">—</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">CO&#8322; Emissions Avoided</span>
+              <span class="roi-result-value" id="roi-result-co2">—</span>
+            </div>
+            <div class="roi-result-item">
+              <span class="roi-result-label">Carbon Credit Equivalents</span>
+              <span class="roi-result-value" id="roi-result-credits">—</span>
+            </div>
+
+            <div class="roi-result-item" style="border-top: 2px solid var(--accent); margin-top: 8px; padding-top: 16px;">
+              <span class="roi-result-label" style="font-weight: 700; color: var(--text-primary);">Equivalent Mature Trees Planted</span>
+              <span class="roi-result-value" id="roi-result-trees" style="font-size: 1.3rem;">—</span>
+            </div>
+            <div class="roi-headline">
+              <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 6px;">Annual CO&#8322; Reduction</div>
+              <div class="roi-headline-value" id="roi-headline-co2">—</div>
+              <div class="roi-headline-label">Based on IEA country-specific grid emission factors</div>
+            </div>
+          </div>
+
+          <!-- Cross-reference: other calculator results -->
+          <div class="roi-cross-refs">
+            <div class="roi-cross-ref" data-panel="financial" style="display: none;">
+              <div class="roi-cross-ref-label">Financial Savings</div>
+              <div class="roi-cross-ref-value" id="roi-xref-financial">—</div>
+            </div>
+            <div class="roi-cross-ref" data-panel="equipment">
+              <div class="roi-cross-ref-label">Equipment Life</div>
+              <div class="roi-cross-ref-value" id="roi-xref-equipment">—</div>
+            </div>
+            <div class="roi-cross-ref" data-panel="carbon">
+              <div class="roi-cross-ref-label">Carbon Reduction</div>
+              <div class="roi-cross-ref-value" id="roi-xref-carbon">—</div>
             </div>
           </div>
 

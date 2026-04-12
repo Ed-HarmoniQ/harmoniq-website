@@ -14,7 +14,13 @@
   background: var(--bg-secondary);
   border-left: 3px solid var(--accent);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
 }
+.tier-card .tier-body { flex: 1; min-width: 0; }
+.tier-card .tier-img { width: 200px; flex-shrink: 0; align-self: center; }
+.tier-card .tier-img img { width: 100%; height: auto; display: block; }
 .tier-card .tier-name {
   font-size: 0.625rem;
   font-weight: 700;
@@ -187,6 +193,7 @@
   .sector-steps { grid-template-columns: 1fr; gap: 0; }
   .sector-step-arrow { display: none !important; }
   .tier-card, .myth-card { padding: 20px 24px; }
+  .tier-card .tier-img { display: none; }
   .tech-toggle summary { padding: 14px 18px; font-size: 0.875rem; }
   .tech-toggle .detail { padding: 16px 18px 20px; }
 }
