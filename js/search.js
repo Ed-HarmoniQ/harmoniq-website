@@ -21,7 +21,8 @@
       description: 'The HarmoniQ Product Suite — three hardware devices and a real-time software platform.',
       url: 'how-it-works.html',
       category: 'Pages',
-      keywords: 'product how it works technology hardware devices alpha booster filter software platform power quality reactive energy harmonics'
+      keywords: 'product how it works technology hardware devices alpha booster filter software platform power quality reactive energy harmonics',
+      boost: 8
     },
     {
       title: 'Industries',
@@ -32,10 +33,11 @@
     },
     {
       title: 'Savings Calculator',
-      description: 'Calculate how much your facility could save with HarmoniQ — by bill, spend, or facility size.',
+      description: 'Calculate your potential financial savings, equipment life extension, and carbon reduction.',
       url: 'savings-calculator.html',
       category: 'Pages',
-      keywords: 'roi calculator savings return on investment monthly bill annual spend facility size industry power factor'
+      keywords: 'roi calculator savings return on investment monthly bill annual spend facility size industry power factor carbon co2 emissions equipment life extension financial price pricing cost how much',
+      boost: 10
     },
     {
       title: 'About Us',
@@ -60,10 +62,11 @@
     },
     {
       title: 'Contact Us',
-      description: 'Get in touch — book a free demo, talk to an engineer, or request a site assessment.',
+      description: 'Call +44 20 3494 4044 or email enquiries@harmoniqtechnologies.com. Book a free demo or site assessment.',
       url: 'contact.html',
       category: 'Pages',
-      keywords: 'contact us email phone demo engineer assessment enquiry get in touch talk'
+      keywords: 'contact us email phone demo engineer assessment enquiry get in touch talk reach out call telephone +44 enquiries harmoniqtechnologies',
+      boost: 8
     },
     {
       title: 'Partners',
@@ -317,90 +320,132 @@
       keywords: 'savings proven verified metered baseline results energy reduction roi return investment'
     },
 
-    // ── FAQ Items ──────────────────────────────────────────────
+    // ── FAQ Items (deep-linked to individual questions) ────────
     {
-      title: 'What does HarmoniQ actually do?',
-      description: 'HarmoniQ injects a corrective electromagnetic waveform that cancels reactive power, harmonics, and voltage instability in real time.',
-      url: 'faq.html',
+      title: 'What exactly does HarmoniQ do?',
+      description: 'HarmoniQ cleans electrical current by eliminating harmonic distortion, reactive current, and phase imbalance at the source.',
+      url: 'faq.html#faq-what-exactly-does-harmoniq-do',
       category: 'FAQ',
-      keywords: 'what does harmoniq do how work technology explain overview summary'
+      keywords: 'what does harmoniq do how work technology explain overview summary clean current harmonic reactive'
     },
     {
       title: 'How is HarmoniQ different from capacitor banks?',
       description: 'Unlike capacitor banks, HarmoniQ addresses all power quality issues simultaneously — not just power factor.',
-      url: 'faq.html',
+      url: 'faq.html#faq-how-is-harmoniq-different-from-a',
       category: 'FAQ',
-      keywords: 'different capacitor bank comparison advantage unique better why choose alternative competition'
+      keywords: 'different capacitor bank comparison advantage unique better why choose alternative competition resonance'
     },
     {
       title: 'Is the technology patented?',
-      description: 'Yes — HarmoniQ\'s electromagnetic waveform injection technology is protected by granted patents across Europe and the Middle East.',
-      url: 'faq.html',
+      description: 'Yes — HarmoniQ\'s Electrical Current Balancing System is protected by granted patents.',
+      url: 'faq.html#faq-is-the-technology-patented',
       category: 'FAQ',
       keywords: 'patented technology patent protected intellectual property ip granted'
     },
     {
-      title: 'What equipment is compatible?',
-      description: 'HarmoniQ works with all standard industrial electrical systems — motors, transformers, compressors, HVAC, lighting, and more.',
-      url: 'faq.html',
+      title: 'What equipment types does HarmoniQ work with?',
+      description: 'Compatible with all sub-600V equipment — motors, VSDs, UPS, HVAC, lighting, IT infrastructure, chargers.',
+      url: 'faq.html#faq-what-equipment-types-does-harmoniq-work',
       category: 'FAQ',
-      keywords: 'compatible equipment systems motors transformers compressors hvac lighting industrial works with'
+      keywords: 'compatible equipment systems motors vfd vsd transformers compressors hvac lighting industrial works with ups server chargers'
     },
     {
-      title: 'Does HarmoniQ reduce heat?',
-      description: 'Yes — by reducing reactive current and harmonics, HarmoniQ lowers I²R losses and operating temperatures by up to 20°C.',
-      url: 'faq.html',
+      title: 'Is the equipment certified?',
+      description: 'ETL Listed, CE marked, FCC compliant, EMC tested, Type 4X rated. Meets IEEE 519-2022, IEC 61000, ISO 50015.',
+      url: 'faq.html#faq-is-the-equipment-certified',
       category: 'FAQ',
-      keywords: 'heat reduction temperature cooling thermal i2r losses lower degrees celsius equipment'
+      keywords: 'certified certifications etl ce fcc emc intertek ul approval compliance ieee 519 iec 61000 iso 50015 standards'
     },
     {
-      title: 'How long does installation take?',
-      description: 'Typically one day. No production shutdown required — HarmoniQ connects in parallel to your distribution board.',
-      url: 'faq.html',
+      title: 'What happens if the HarmoniQ system fails?',
+      description: 'HarmoniQ is shunt-connected — not in the power path. If offline, your facility operates normally.',
+      url: 'faq.html#faq-what-happens-if-the-harmoniq-system',
       category: 'FAQ',
-      keywords: 'installation time duration how long day quick fast easy parallel distribution board'
+      keywords: 'fails failure breakdown offline safety risk redundancy shunt parallel'
     },
     {
-      title: 'Does HarmoniQ require maintenance?',
-      description: 'Minimal. HarmoniQ has no moving parts and is designed for 15+ years of maintenance-free operation.',
-      url: 'faq.html',
+      title: 'How does reducing heat extend equipment life?',
+      description: 'IEEE Arrhenius Law — every 10°C reduction doubles insulation life. HarmoniQ cuts temps by up to 20°C, extending life 2-4x.',
+      url: 'faq.html#faq-how-does-reducing-heat-extend-equipment',
       category: 'FAQ',
-      keywords: 'maintenance required service upkeep moving parts reliable lifespan 15 years maintenance-free'
+      keywords: 'heat reduction temperature cooling thermal i2r losses equipment life extension arrhenius motor transformer insulation'
     },
     {
-      title: 'How are savings calculated?',
-      description: 'Savings are measured using before-and-after metering data, verified against utility bills over a 3-month baseline.',
-      url: 'faq.html',
+      title: 'How is it installed? Does it require downtime?',
+      description: 'Installed in parallel on spare breakers — no rewiring, no downtime. Takes 1 day to 2 weeks depending on site size.',
+      url: 'faq.html#faq-how-is-it-installed-does-it',
       category: 'FAQ',
-      keywords: 'savings calculated measured verified metering data baseline proof evidence billing comparison before after'
+      keywords: 'installation install downtime interruption parallel breaker wiring process setup commissioning day'
     },
     {
-      title: 'Do you offer guaranteed savings?',
-      description: 'Yes — HarmoniQ offers performance guarantees backed by metered data on qualifying sites.',
-      url: 'faq.html',
+      title: 'How long does installation take from agreement to go-live?',
+      description: 'Most installations complete in 1-2 weeks after site assessment. Simple sites in one day.',
+      url: 'faq.html#faq-how-long-does-installation-take-from',
       category: 'FAQ',
-      keywords: 'guaranteed savings performance guarantee money back promise commitment assurance qualifying'
+      keywords: 'installation time duration how long days weeks timeline go live deployment'
     },
     {
-      title: 'Can HarmoniQ help with ESG reporting?',
-      description: 'Yes — reduced energy consumption directly lowers Scope 2 emissions, providing measurable data for ESG and CSRD reports.',
-      url: 'faq.html',
+      title: 'Does it work with my existing energy management system?',
+      description: 'Yes — integrates with BMS, SCADA, energy management via Modbus, BACnet, and MQTT.',
+      url: 'faq.html#faq-does-it-work-with-my-existing',
       category: 'FAQ',
-      keywords: 'esg reporting csrd scope 2 emissions carbon sustainability compliance data measurable audit'
+      keywords: 'integration bms scada ems energy management modbus bacnet mqtt existing system protocols'
     },
     {
-      title: 'What is the minimum site size?',
-      description: 'HarmoniQ is most effective on sites drawing 100 kVA or more — typically facilities with monthly bills above $6,000.',
-      url: 'faq.html',
+      title: 'What maintenance does HarmoniQ require?',
+      description: 'Minimal — no mechanical components, annual inspection included in rental, remote monitoring via software platform.',
+      url: 'faq.html#faq-what-maintenance-does-harmoniq-require',
       category: 'FAQ',
-      keywords: 'minimum site size kva requirements qualifying criteria threshold small large facility bill amount'
+      keywords: 'maintenance required service upkeep moving parts reliable lifespan maintenance-free inspection remote monitoring'
     },
     {
-      title: 'Is HarmoniQ available internationally?',
-      description: 'Yes — HarmoniQ operates in 15+ countries including UK, Europe, Middle East, and select markets in Asia and the Americas.',
-      url: 'faq.html',
+      title: 'How are the 10–25% savings calculated?',
+      description: 'Measured against a pre-installation baseline using industry-standard power analysers — kWh, PF, demand, penalties.',
+      url: 'faq.html#faq-how-are-the-1025-savings-calculated',
       category: 'FAQ',
-      keywords: 'international available countries uk europe middle east asia americas global worldwide locations'
+      keywords: 'savings calculated measured verified metering data baseline proof evidence billing comparison before after methodology analyser'
+    },
+    {
+      title: 'How quickly will I see results?',
+      description: 'Power quality improvements are immediate and measurable on installation day. Financial savings on your next utility bill.',
+      url: 'faq.html#faq-how-quickly-will-i-see-results',
+      category: 'FAQ',
+      keywords: 'how quick fast results immediate see savings timeline payback'
+    },
+    {
+      title: 'Can you guarantee the savings?',
+      description: 'Free on-site demonstration before any commitment. Rental contracts include performance benchmarks.',
+      url: 'faq.html#faq-can-you-guarantee-the-savings',
+      category: 'FAQ',
+      keywords: 'guaranteed savings performance guarantee money back promise commitment assurance demo free trial'
+    },
+    {
+      title: 'Does HarmoniQ help with ESG / carbon reporting?',
+      description: 'Yes — reduces Scope 2 emissions, with automatic CO₂ reporting formatted for ESG disclosures and ISO 50001.',
+      url: 'faq.html#faq-does-harmoniq-help-with-esg-carbon',
+      category: 'FAQ',
+      keywords: 'esg reporting csrd scope 2 emissions carbon co2 sustainability compliance data measurable audit iso 50001 green'
+    },
+    {
+      title: 'What are the commercial options — rental vs purchase?',
+      description: 'Two models: rental (monthly fee covered by savings, cashflow-positive day one) or outright purchase.',
+      url: 'faq.html#faq-what-are-the-commercial-options-rental',
+      category: 'FAQ',
+      keywords: 'rental purchase buy lease commercial model pricing cost price fee monthly capex opex finance terms how much'
+    },
+    {
+      title: 'Is there a minimum site size?',
+      description: 'Works best for facilities spending $500k+ per year on electricity. Smaller sites see real savings but weaker unit economics.',
+      url: 'faq.html#faq-is-there-a-minimum-site-size',
+      category: 'FAQ',
+      keywords: 'minimum site size kva requirements qualifying criteria threshold small large facility bill amount suitable'
+    },
+    {
+      title: 'Do you work internationally?',
+      description: 'Yes — 120+ sites across Europe, Middle East, and North America in 15+ countries. 50Hz and 60Hz supported.',
+      url: 'faq.html#faq-do-you-work-internationally',
+      category: 'FAQ',
+      keywords: 'international available countries uk europe middle east asia americas global worldwide locations 50hz 60hz'
     },
 
     // ── Team ───────────────────────────────────────────────────
@@ -412,26 +457,37 @@
       keywords: 'team leadership founders ceo coo cto oleg oscar edward management board executives people who runs'
     },
 
-    // ── Contact info ───────────────────────────────────────────
+    // ── Products (individual hardware devices) ─────────────────
     {
-      title: 'Phone: +44 20 3494 4044',
-      description: 'Call us to discuss your energy optimization needs.',
-      url: 'contact.html',
-      category: 'Contact',
-      keywords: 'phone telephone number call ring +44 20 3494 4044'
+      title: 'HarmoniQ Filter',
+      description: 'Software-controlled active filter that tracks and cancels up to 51 harmonic orders in real time.',
+      url: 'how-it-works.html#hardware',
+      category: 'Products',
+      keywords: 'harmoniq filter active harmonic filter afm thd 51 orders harmonic cancellation self-tuning ieee 519 load changes software controlled tier 1',
+      boost: 6
     },
     {
-      title: 'Email: enquiries@harmoniqtechnologies.com',
-      description: 'Send us an email with your enquiry.',
-      url: 'contact.html',
-      category: 'Contact',
-      keywords: 'email address enquiry enquiries harmoniqtechnology contact write send message'
+      title: 'HarmoniQ Alpha',
+      description: 'Real-time impedance matching and line conditioning — phase balancing, voltage stabilisation, circulating current elimination.',
+      url: 'how-it-works.html#hardware',
+      category: 'Products',
+      keywords: 'harmoniq alpha harmoniq 600 impedance matching line conditioning phase balancing voltage stabilisation circulating current neutral current tier 2 hybrid resonant',
+      boost: 6
+    },
+    {
+      title: 'HarmoniQ Booster',
+      description: 'Solid-state power factor correction to 0.99+ — replaces conventional capacitor banks with zero resonance risk.',
+      url: 'how-it-works.html#hardware',
+      category: 'Products',
+      keywords: 'harmoniq booster power factor correction pfc solid state capacitor bank replacement unity 0.99 reactive power voltage stabilisation tier 3 no resonance',
+      boost: 6
     }
   ];
 
   // ── Category Icons (SVG) ─────────────────────────────────────
   const CATEGORY_ICONS = {
     Pages: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
+    Products: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>',
     Articles: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>',
     Features: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
     FAQ: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
@@ -450,49 +506,120 @@
     return url;
   }
 
-  // ── Fuzzy Search ─────────────────────────────────────────────
+  // ── Levenshtein distance (bounded to max 2) ──────────────────
+  function editDistance(a, b, max) {
+    if (a === b) return 0;
+    if (Math.abs(a.length - b.length) > max) return max + 1;
+    const la = a.length, lb = b.length;
+    if (la === 0) return lb;
+    if (lb === 0) return la;
+    let prev = new Array(lb + 1);
+    let curr = new Array(lb + 1);
+    for (let j = 0; j <= lb; j++) prev[j] = j;
+    for (let i = 1; i <= la; i++) {
+      curr[0] = i;
+      let rowMin = curr[0];
+      for (let j = 1; j <= lb; j++) {
+        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+        curr[j] = Math.min(
+          prev[j] + 1,       // deletion
+          curr[j - 1] + 1,   // insertion
+          prev[j - 1] + cost // substitution
+        );
+        if (curr[j] < rowMin) rowMin = curr[j];
+      }
+      if (rowMin > max) return max + 1;
+      [prev, curr] = [curr, prev];
+    }
+    return prev[lb];
+  }
+
+  // Tokenize a haystack into words for fuzzy matching
+  function tokenize(text) {
+    return text.toLowerCase().match(/[a-z0-9]+/g) || [];
+  }
+
+  // Check if a query term matches a haystack word — exact, prefix, or typo-tolerant
+  function termMatches(term, haystack, haystackWords) {
+    // Exact substring match (fast path)
+    if (haystack.includes(term)) return { matched: true, kind: 'exact' };
+    // For short terms (< 4 chars), don't attempt fuzzy matching — too noisy
+    if (term.length < 4) return { matched: false };
+    // Prefix match against any word (e.g. "manufactu" → "manufacturing")
+    for (const word of haystackWords) {
+      if (word.length >= term.length && word.startsWith(term)) {
+        return { matched: true, kind: 'prefix' };
+      }
+    }
+    // Typo tolerance: edit distance ≤ 1 for terms ≥ 5 chars, ≤ 2 for terms ≥ 8 chars
+    const maxDist = term.length >= 8 ? 2 : 1;
+    for (const word of haystackWords) {
+      if (Math.abs(word.length - term.length) > maxDist) continue;
+      if (editDistance(term, word, maxDist) <= maxDist) {
+        return { matched: true, kind: 'typo' };
+      }
+    }
+    return { matched: false };
+  }
+
+  // ── Search with fuzzy matching, prefix, and typo tolerance ──
   function searchEntries(query) {
     if (!query || query.trim().length === 0) return [];
 
-    const terms = query.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+    const terms = query.toLowerCase().match(/[a-z0-9]+/g) || [];
+    if (terms.length === 0) return [];
+
     const scored = [];
 
     for (const entry of SEARCH_INDEX) {
-      const haystack = (entry.title + ' ' + entry.description + ' ' + entry.keywords).toLowerCase();
+      const titleLower = entry.title.toLowerCase();
+      const descLower = entry.description.toLowerCase();
+      const kwLower = entry.keywords.toLowerCase();
+      const haystack = titleLower + ' ' + descLower + ' ' + kwLower;
+      const haystackWords = tokenize(haystack);
+
       let score = 0;
       let allMatch = true;
+      let matchKinds = [];
 
       for (const term of terms) {
-        if (haystack.includes(term)) {
-          // Title match is highest priority
-          if (entry.title.toLowerCase().includes(term)) {
-            score += 10;
-          }
-          // Description match
-          if (entry.description.toLowerCase().includes(term)) {
-            score += 5;
-          }
-          // Keyword match
-          if (entry.keywords.toLowerCase().includes(term)) {
-            score += 3;
-          }
-          // Exact word boundary match bonus
+        const match = termMatches(term, haystack, haystackWords);
+        if (!match.matched) { allMatch = false; break; }
+        matchKinds.push(match.kind);
+
+        // Penalty for fuzzy/prefix matches so exact wins
+        const kindPenalty = match.kind === 'exact' ? 1 : match.kind === 'prefix' ? 0.7 : 0.4;
+
+        // Title match is highest priority
+        if (titleLower.includes(term) || tokenize(titleLower).some(w => w.startsWith(term) || editDistance(term, w, 1) <= 1)) {
+          score += 12 * kindPenalty;
+        }
+        // Description match
+        if (descLower.includes(term)) {
+          score += 5 * kindPenalty;
+        }
+        // Keyword match
+        if (kwLower.includes(term)) {
+          score += 3 * kindPenalty;
+        }
+        // Exact word-boundary bonus (only for exact matches)
+        if (match.kind === 'exact') {
           const wordBoundary = new RegExp('\\b' + term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b');
-          if (wordBoundary.test(haystack)) {
-            score += 2;
-          }
-        } else {
-          allMatch = false;
+          if (wordBoundary.test(haystack)) score += 2;
         }
       }
 
-      // All terms must match at least somewhere
-      if (allMatch && score > 0) {
-        scored.push({ entry, score });
-      }
+      if (!allMatch || score <= 0) continue;
+
+      // Popularity boost for primary pages
+      if (entry.boost) score += entry.boost;
+
+      // Bonus for full-phrase match in title
+      if (titleLower.includes(query.toLowerCase())) score += 8;
+
+      scored.push({ entry, score });
     }
 
-    // Sort by score descending
     scored.sort((a, b) => b.score - a.score);
     return scored.map(s => s.entry);
   }
@@ -517,7 +644,7 @@
         <div class="search-input-wrap">
           <svg class="search-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <input type="text" class="search-input" id="searchInput" placeholder="Search pages, articles, FAQs..." autocomplete="off" spellcheck="false" />
-          <kbd class="search-kbd-esc">ESC</kbd>
+          <button type="button" class="search-close-btn" id="searchCloseBtn" aria-label="Close search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
         </div>
         <div class="search-results" id="searchResults">
           <div class="search-empty-state" id="searchEmpty">
@@ -526,15 +653,23 @@
             </div>
             <p>Start typing to search the site</p>
             <div class="search-hints">
-              <span>Try: <button type="button" class="search-hint-btn" data-query="savings">savings</button></span>
-              <span><button type="button" class="search-hint-btn" data-query="power factor">power factor</button></span>
-              <span><button type="button" class="search-hint-btn" data-query="installation">installation</button></span>
-              <span><button type="button" class="search-hint-btn" data-query="ESG">ESG</button></span>
+              <span>Try:</span>
+              <button type="button" class="search-hint-btn" data-query="pricing">pricing</button>
+              <button type="button" class="search-hint-btn" data-query="demo">book demo</button>
+              <button type="button" class="search-hint-btn" data-query="savings calculator">calculator</button>
+              <button type="button" class="search-hint-btn" data-query="installation time">installation</button>
+              <button type="button" class="search-hint-btn" data-query="industries">industries</button>
             </div>
           </div>
           <div class="search-no-results" id="searchNoResults" style="display:none">
             <p>No results found</p>
-            <span class="search-no-results-hint">Try different keywords or check your spelling</span>
+            <span class="search-no-results-hint">Try different keywords, or jump straight to:</span>
+            <div class="search-hints" style="margin-top: 14px;">
+              <button type="button" class="search-hint-btn" data-query="savings calculator">calculator</button>
+              <button type="button" class="search-hint-btn" data-query="contact">contact</button>
+              <button type="button" class="search-hint-btn" data-query="faq">FAQ</button>
+              <button type="button" class="search-hint-btn" data-query="industries">industries</button>
+            </div>
           </div>
           <div class="search-results-list" id="searchResultsList"></div>
         </div>
@@ -578,7 +713,7 @@
 
     // Group by category
     const groups = {};
-    const categoryOrder = ['Pages', 'Sectors', 'Features', 'Articles', 'FAQ', 'Contact'];
+    const categoryOrder = ['Pages', 'Products', 'Sectors', 'Features', 'Articles', 'FAQ', 'Contact'];
     for (const r of results) {
       if (!groups[r.category]) groups[r.category] = [];
       groups[r.category].push(r);
@@ -645,13 +780,19 @@
     // Bind events
     input.addEventListener('input', onInput);
 
-    // Hint buttons
-    overlay.querySelectorAll('.search-hint-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
+    // Delegate hint-button clicks (covers both initial and no-results states)
+    overlay.addEventListener('click', (e) => {
+      const btn = e.target.closest('.search-hint-btn');
+      if (btn) {
         input.value = btn.dataset.query;
         input.dispatchEvent(new Event('input'));
-      });
+        input.focus();
+      }
     });
+
+    // Close button
+    const closeBtn = document.getElementById('searchCloseBtn');
+    if (closeBtn) closeBtn.addEventListener('click', close);
   }
 
   function close() {
