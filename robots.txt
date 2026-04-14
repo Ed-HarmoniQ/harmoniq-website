@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /assets/blog/
+Sitemap: https://harmoniqtechnologies.com/sitemap.xml
