@@ -824,11 +824,11 @@ window.addEventListener('scroll', () => {
 
   var HQ_UNITS = [
     { edge: 0,  phase: 0, num: '1', line1: 'HarmoniQ', line2: 'Booster',  pos: 0.62, side: 'right' },  // Top
-    { edge: 5,  phase: 1, num: '2', line1: 'Line',        line2: 'Conditioner',    pos: 0.58, side: 'right' },  // Busbar -> MCC-2
-    { edge: 8,  phase: 2, num: '3', line1: 'Line',        line2: 'Conditioner',    pos: 0.50, side: 'left'  },  // UPS -> PDU (far left)
-    { edge: 9,  phase: 3, num: '4', line1: 'Line',        line2: 'Conditioner',    pos: 0.88, side: 'left'  },  // MCC-1 -> Motor
+    { edge: 5,  phase: 1, num: '2', line1: 'HarmoniQ',    line2: 'Alpha',    pos: 0.58, side: 'right' },  // Busbar -> MCC-2
+    { edge: 8,  phase: 2, num: '3', line1: 'HarmoniQ',    line2: 'Alpha',    pos: 0.50, side: 'left'  },  // UPS -> PDU (far left)
+    { edge: 9,  phase: 3, num: '4', line1: 'HarmoniQ',    line2: 'Alpha',    pos: 0.88, side: 'left'  },  // MCC-1 -> Motor
     { edge: 10, phase: 3, num: '5', line1: 'Active',      line2: 'Filter',   pos: 0.82, side: 'right' },  // MCC-1 -> VFD
-    { edge: 14, phase: 4, num: '6', line1: 'Line',        line2: 'Conditioner',    pos: 0.82, side: 'left'  },  // HVAC -> AHU
+    { edge: 14, phase: 4, num: '6', line1: 'HarmoniQ',    line2: 'Alpha',    pos: 0.82, side: 'left'  },  // HVAC -> AHU
     { edge: 13, phase: 4, num: '7', line1: 'Active',      line2: 'Filter',   pos: 0.82, side: 'right' },  // HVAC -> Chiller (far right)
   ];
 
