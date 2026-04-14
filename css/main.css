@@ -1115,6 +1115,22 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 }
 
 
+
+/* ── Product page mobile fixes ────────────────────────────── */
+@media (max-width: 768px) {
+  /* HarmoniQ Difference comparison: stack vertically */
+  .grid-2[style*="gap: 72px"] {
+    gap: 32px !important;
+  }
+}
+@media (max-width: 640px) {
+  /* Force the Without/With comparison to stack */
+  div[style*="grid-template-columns: 1fr 1fr"][style*="gap: 16px"] {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
 /* ── Mobile polish ────────────────────────────────────────── */
 @media (max-width: 768px) {
   /* Hero: tighter spacing, full-width buttons, better stats */
@@ -2224,24 +2240,38 @@ button:focus:not(:focus-visible), a:focus:not(:focus-visible) { outline: none; }
   .nav-inner { gap: 0; }
   .nav-brand { flex: 1; }
 
-  /* Certifications: cleaner mobile grid */
+  /* Certifications: 3-top + 2-bottom layout */
   .cert-strip-items {
-    gap: 20px !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+    justify-items: center;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  /* EMC and 4X (items 4+5) on second row centered */
+  .cert-strip-item:nth-child(4) {
+    grid-column: 1 / 2;
+    justify-self: end;
+  }
+  .cert-strip-item:nth-child(5) {
+    grid-column: 2 / 3;
+    justify-self: start;
   }
   .cert-strip-item {
-    width: 70px !important;
+    width: auto !important;
   }
   .cert-strip-item img {
-    height: 36px !important;
+    height: 34px !important;
   }
   .cert-strip-badge {
-    width: 44px !important;
-    height: 44px !important;
+    width: 42px !important;
+    height: 42px !important;
   }
   .cert-strip-badge div:first-child {
-    font-size: 0.78rem !important;
+    font-size: 0.75rem !important;
   }
   .cert-strip-label {
-    font-size: 0.55rem !important;
+    font-size: 0.52rem !important;
   }
 }
