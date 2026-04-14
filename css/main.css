@@ -1106,8 +1106,8 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   .hero                   { order: 1; }
   #certs-strip            { order: 5; }
   .problem-section        { order: 2; }
-  .solution-section       { order: 4; }
-  .bill-section           { order: 3; }
+  .solution-section       { order: 3; }
+  .bill-section           { order: 4; }
   #trust-bar              { order: 6; }
   .getstarted-section     { order: 7; }
   .cta-section            { order: 8; }
@@ -1117,7 +1117,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 
 /* ── Mobile polish ────────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* Hero: tighter spacing, full-width buttons */
+  /* Hero: tighter spacing, full-width buttons, better stats */
   .hero-actions {
     flex-direction: column;
     margin-bottom: 40px;
@@ -1130,6 +1130,17 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   }
   .hero-sub {
     font-size: 0.95rem;
+  }
+  .hero-stats {
+    padding: 28px 20px !important;
+    gap: 0 !important;
+  }
+  .hero-stat {
+    padding: 16px 12px !important;
+  }
+  .hero-stat-value {
+    font-size: 1.6rem !important;
+    white-space: nowrap;
   }
 
   /* Solution: tighter gap */
