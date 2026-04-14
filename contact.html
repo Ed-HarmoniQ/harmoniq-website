@@ -160,13 +160,7 @@
         <h3 class="h2" style="margin-bottom: 8px;">Book a Free On-Site Demo</h3>
         <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 28px;">Tell us about your facility. We'll be in touch within one business day.</p>
 
-        <form id="contactForm" action="https://formsubmit.co/enquiries@harmoniqtechnologies.com" method="POST">
-          <!-- FormSubmit config -->
-          <input type="hidden" name="_subject" value="New Demo Request — HarmoniQ Website" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://harmoniqtechnologies.com/contact.html?submitted=true#demo" />
-          <input type="text" name="_honey" style="display:none" />
+        <form id="contactForm" onsubmit="return handleContactSubmit(event)">
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name *</label>
@@ -317,14 +311,40 @@
 <script src="js/main.js"></script>
 <script src="js/search.js"></script>
 <script>
-// Show success state if redirected back after submission
-if (window.location.search.indexOf('submitted=true') !== -1) {
-  document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('contactForm');
-    var success = document.getElementById('formSuccess');
-    if (form) form.style.display = 'none';
-    if (success) success.style.display = 'block';
-  });
+function handleContactSubmit(e) {
+  e.preventDefault();
+  var f = document.getElementById('contactForm');
+  var firstName = f.querySelector('#firstName').value.trim();
+  var lastName = f.querySelector('#lastName').value.trim();
+  var email = f.querySelector('#email').value.trim();
+  var phone = f.querySelector('#phone').value.trim();
+  var company = f.querySelector('#company').value.trim();
+  var role = f.querySelector('#role').value;
+  var country = f.querySelector('#country').value;
+  var spend = f.querySelector('#annualSpend').value;
+  var industry = f.querySelector('#industry').value;
+  var message = f.querySelector('#message').value.trim();
+
+  var subject = 'Demo Request — ' + company + ' (' + firstName + ' ' + lastName + ')';
+  var body = 'New demo request from harmoniqtechnologies.com\n\n';
+  body += '--- Contact Details ---\n';
+  body += 'Name: ' + firstName + ' ' + lastName + '\n';
+  body += 'Email: ' + email + '\n';
+  if (phone) body += 'Phone: ' + phone + '\n';
+  body += 'Company: ' + company + '\n';
+  if (role) body += 'Role: ' + role + '\n';
+  if (country) body += 'Country: ' + country + '\n';
+  body += '\n--- Facility Details ---\n';
+  if (spend) body += 'Annual Electricity Spend: ' + spend + '\n';
+  if (industry) body += 'Industry: ' + industry + '\n';
+  if (message) body += '\n--- Additional Notes ---\n' + message + '\n';
+
+  var mailto = 'mailto:enquiries@harmoniqtechnologies.com'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+
+  window.location.href = mailto;
+  return false;
 }
 </script>
 </body>
