@@ -192,8 +192,13 @@
 @media (max-width: 768px) {
   .sector-steps { grid-template-columns: 1fr; gap: 0; }
   .sector-step-arrow { display: none !important; }
-  .tier-card, .myth-card { padding: 20px 24px; }
+  .sector-step { padding: 20px 12px; }
+  .tier-card { padding: 20px; flex-direction: column; }
   .tier-card .tier-img { display: none; }
-  .tech-toggle summary { padding: 14px 18px; font-size: 0.875rem; }
-  .tech-toggle .detail { padding: 16px 18px 20px; }
+  .myth-card { padding: 20px; }
+  .myth-text { font-size: 0.875rem; }
+  .reality-text { font-size: 0.875rem; }
+  .tech-toggle summary { padding: 14px 16px; font-size: 0.8125rem; gap: 8px; }
+  .tech-toggle summary .toggle-cta { padding: 3px 10px; font-size: 0.65rem; }
+  .tech-toggle .detail { padding: 16px; font-size: 0.875rem; }
 }

@@ -374,9 +374,17 @@ function calculate() {
       requestAnimationFrame(() => { p.style.animation = 'fadeUp 0.4s ease forwards'; });
     }
   });
+
+  // Show scroll prompt on mobile
+  const scrollPrompt = document.getElementById('roiScrollPrompt');
+  if (scrollPrompt && window.innerWidth <= 900) {
+    scrollPrompt.style.display = '';
+  }
 }
 
 function clearResults() {
+  const scrollPrompt = document.getElementById('roiScrollPrompt');
+  if (scrollPrompt) scrollPrompt.style.display = 'none';
   const ids = [
     'roi-result-savings-rate', 'roi-result-energy-saving', 'roi-result-linecond-saving',
     'roi-result-pf-saving', 'roi-result-demand-saving', 'roi-result-total', 'roi-headline-value',
@@ -458,6 +466,16 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.roi-cross-ref').forEach(ref => {
     ref.addEventListener('click', () => switchPanel(ref.dataset.panel));
   });
+
+  // Scroll prompt: tap to scroll to results
+  const scrollPrompt = document.getElementById('roiScrollPrompt');
+  if (scrollPrompt) {
+    scrollPrompt.addEventListener('click', () => {
+      const results = document.querySelector('.roi-pill-toggle');
+      if (results) results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollPrompt.style.display = 'none';
+    });
+  }
 
   updateInputMode();
   updatePFHint();
