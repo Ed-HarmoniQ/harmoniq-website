@@ -479,6 +479,55 @@
     </div>
 
     <div class="blog-grid" id="blogGrid">
+      <!-- Technical Reference -->
+      <a href="articles/understanding-harmoniq.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb blog-thumb-dark" style="padding: 0; position: relative;">
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.4); z-index: 2;">Technical Reference</span>
+          <svg viewBox="0 0 400 180" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" style="display:block;">
+            <defs>
+              <linearGradient id="trBg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0d1418"/>
+                <stop offset="1" stop-color="#05080a"/>
+              </linearGradient>
+            </defs>
+            <rect width="400" height="180" fill="url(#trBg)"/>
+            <g stroke="#00C47A" stroke-width="0.3" opacity="0.08">
+              <line x1="0" y1="60" x2="400" y2="60"/><line x1="0" y1="90" x2="400" y2="90"/><line x1="0" y1="120" x2="400" y2="120"/>
+            </g>
+            <!-- Three waveform types -->
+            <!-- 1. Shifted sine (reactive) -->
+            <g opacity="0.7">
+              <path d="M20,50 Q50,30 80,50 Q110,70 140,50 Q170,30 200,50" fill="none" stroke="#60A5FA" stroke-width="1.3"/>
+              <path d="M20,50 Q55,25 90,50 Q125,75 160,50 Q195,25 220,50" fill="none" stroke="#FCD34D" stroke-width="1.3"/>
+              <text x="230" y="53" font-family="'JetBrains Mono', monospace" font-size="6" fill="#EEF2FF" opacity="0.6">REACTIVE</text>
+            </g>
+            <!-- 2. Distorted wave (harmonics) -->
+            <g opacity="0.7">
+              <path d="M20,90 L30,80 L38,95 L46,76 L54,98 L62,78 L70,96 L78,82 L86,94 L94,84 L102,92 L110,86 L120,90 L128,88 L140,90 Q170,70 200,90" fill="none" stroke="#00C47A" stroke-width="1.3"/>
+              <path d="M20,90 Q50,70 80,90 Q110,110 140,90 Q170,70 200,90" fill="none" stroke="#00C47A" stroke-width="0.7" stroke-dasharray="2,3" opacity="0.5"/>
+              <text x="230" y="93" font-family="'JetBrains Mono', monospace" font-size="6" fill="#EEF2FF" opacity="0.6">HARMONICS</text>
+            </g>
+            <!-- 3. Three unequal bars (phase imbalance) -->
+            <g opacity="0.7">
+              <rect x="30" y="118" width="18" height="30" fill="#00C47A" rx="1" opacity="0.8"/>
+              <rect x="56" y="125" width="18" height="23" fill="#00C47A" rx="1" opacity="0.5"/>
+              <rect x="82" y="130" width="18" height="18" fill="#00C47A" rx="1" opacity="0.3"/>
+              <text x="230" y="138" font-family="'JetBrains Mono', monospace" font-size="6" fill="#EEF2FF" opacity="0.6">PHASE IMBALANCE</text>
+            </g>
+            <g font-family="'JetBrains Mono', monospace" font-size="6" fill="#00C47A" opacity="0.55" letter-spacing="0.5">
+              <text x="20" y="172">15 MIN READ</text>
+              <text x="380" y="172" text-anchor="end">TECHNICAL REFERENCE</text>
+            </g>
+          </svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Technical Reference</div>
+          <h3 class="h3" style="margin-bottom: 8px;">Understanding HarmoniQ: The Physics of Clean Current</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">The three types of current distortion, how HarmoniQ corrects all three across the entire network, and the standards we meet. For engineers who want the full picture.</p>
+          <div class="blog-date">15 min read &middot; Technical Reference</div>
+        </div>
+      </a>
+
       <a href="articles/proving-energy-savings.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
         <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
           <img src="assets/blog/weather.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
