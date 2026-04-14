@@ -171,8 +171,8 @@
       <p>Clean power enters your facility at 50/60 Hz. By the time it reaches your equipment, harmonic distortion, reactive power, and voltage instability have turned up to 25% of it into waste heat — and you're billed for every watt.</p>
     </div>
 
-    <!-- Single-Line Diagram -->
-    <div class="pq-scope reveal-scale">
+    <!-- Single-Line Diagram (desktop) -->
+    <div class="pq-scope reveal-scale pq-desktop-only">
       <div class="pq-scope-header">
         <div class="pq-scope-header-top">
           <button class="pq-toggle" id="pqToggle"><span class="pq-toggle-icon">&#9654;</span> See What HarmoniQ Does</button>
@@ -180,6 +180,62 @@
         <button class="pq-toggle pq-compare" id="pqCompare">&#9881; Compare On/Off</button>
       </div>
       <canvas id="pqCanvas"></canvas>
+    </div>
+
+    <!-- Mobile simplified diagram (replaces SLD on small screens) -->
+    <div class="pq-mobile-summary reveal">
+      <div style="background: #0b1120; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-md); padding: 28px 20px; text-align: center;">
+
+        <!-- Simplified vertical flow: Grid → Transformer → HarmoniQ → Clean Loads -->
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0;">
+
+          <!-- Power Grid -->
+          <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase;">Power Grid</div>
+          <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.15);"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #F87171; margin: 4px 0;">PF 0.78 &middot; THD 22%</div>
+          <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.15);"></div>
+
+          <!-- Transformer -->
+          <div style="padding: 12px 24px; border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-sm); font-size: 0.75rem; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; text-transform: uppercase;">Transformer</div>
+          <div style="width: 1px; height: 20px; background: rgba(255,255,255,0.15);"></div>
+
+          <!-- HarmoniQ (highlighted) -->
+          <div style="padding: 14px 32px; background: rgba(0,196,122,0.12); border: 2px solid var(--accent-light); border-radius: var(--radius-sm);">
+            <div style="font-size: 0.65rem; font-weight: 600; color: var(--accent-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px;">HarmoniQ</div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: #EEF2FF;">Filter + Alpha + Booster</div>
+          </div>
+          <div style="width: 1px; height: 20px; background: var(--accent-light); opacity: 0.5;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--accent-light); margin: 4px 0;">PF 0.98+ &middot; THD &lt;5%</div>
+          <div style="width: 1px; height: 20px; background: var(--accent-light); opacity: 0.5;"></div>
+
+          <!-- Clean loads (3 across) -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+            <div style="padding: 10px 14px; border: 1px solid rgba(0,196,122,0.3); border-radius: var(--radius-sm); font-size: 0.68rem; font-weight: 600; color: var(--accent-light);">Motors</div>
+            <div style="padding: 10px 14px; border: 1px solid rgba(0,196,122,0.3); border-radius: var(--radius-sm); font-size: 0.68rem; font-weight: 600; color: var(--accent-light);">HVAC</div>
+            <div style="padding: 10px 14px; border: 1px solid rgba(0,196,122,0.3); border-radius: var(--radius-sm); font-size: 0.68rem; font-weight: 600; color: var(--accent-light);">VFDs</div>
+          </div>
+        </div>
+
+        <!-- Key metrics -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);">
+          <div style="text-align: center; padding: 12px; background: rgba(0,196,122,0.06); border-radius: var(--radius-sm);">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 800; color: var(--accent-light);">0.98+</div>
+            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em;">Power Factor</div>
+          </div>
+          <div style="text-align: center; padding: 12px; background: rgba(0,196,122,0.06); border-radius: var(--radius-sm);">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 800; color: var(--accent-light);">4.5%</div>
+            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em;">Current THD</div>
+          </div>
+          <div style="text-align: center; padding: 12px; background: rgba(0,196,122,0.06); border-radius: var(--radius-sm);">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 800; color: var(--accent-light);">&minus;10&deg;C</div>
+            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em;">Heat Reduction</div>
+          </div>
+          <div style="text-align: center; padding: 12px; background: rgba(0,196,122,0.06); border-radius: var(--radius-sm);">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; font-weight: 800; color: var(--accent-light);">18%</div>
+            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.45); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.06em;">Energy Saved</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <p class="pq-caption">Each connection carries distortion deeper into your network — costing energy, degrading equipment, and shortening its life.</p>

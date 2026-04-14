@@ -1688,6 +1688,13 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   .hero-stat:nth-child(1), .hero-stat:nth-child(2) { border-bottom: 1px solid var(--dark-border); padding-bottom: 20px; margin-bottom: 20px; }
   .metric-row { grid-template-columns: 140px 1fr; gap: 24px; }
 }
+/* SLD: desktop diagram vs mobile summary swap */
+.pq-mobile-summary { display: none; }
+@media (max-width: 768px) {
+  .pq-desktop-only { display: none !important; }
+  .pq-mobile-summary { display: block; }
+}
+
 @media (max-width: 640px) {
   .resp-4col { grid-template-columns: 1fr !important; }
   .resp-4col > * { border-right: none !important; border-bottom: 1px solid var(--border); }

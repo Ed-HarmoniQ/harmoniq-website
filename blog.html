@@ -87,6 +87,11 @@
     .blog-essentials .blog-body h3 { font-size: 1.25rem; }
     @media (max-width: 900px) { .blog-grid, .blog-essentials { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 600px) { .blog-grid, .blog-essentials { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) {
+      #featured { grid-template-columns: 1fr !important; }
+      #featured > div:last-child { min-height: 200px !important; border-left: none !important; border-top: 1px solid var(--border-subtle); }
+      #essentials { grid-template-columns: 1fr !important; gap: 16px !important; }
+    }
 
     /* ── Scroll cue — prominent, fixed to viewport bottom ─── */
     .scroll-cue {
