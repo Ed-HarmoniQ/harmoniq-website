@@ -77,26 +77,26 @@
 <div class="article-body">
 
 <h2>The Problem</h2><div class="section-title">Mining Runs on Heavy Electrical Loads &mdash; and Pays the Price</div>
-<p>Mining operations are among the most electrically intensive environments on the planet. Crushers, grinding mills, conveyors, hoists, and processing equipment draw enormous power &mdash; often from remote, weak grid connections that amplify every inefficiency.</p>
-<p>The combination of massive cyclic loads and poor grid infrastructure means mining sites routinely see <strong>power factors below 0.80</strong> and voltage THD above 8%. The cost isn&rsquo;t just penalties on the electricity bill &mdash; it&rsquo;s mill motors that fail years early, conveyor drives that trip under load, protection relays that false-trip, and demand charges that spike every time a crusher starts.</p>
+<p>Mining operations are among the most electrically intensive environments on the planet. Large grinding mills and crushers at the MV level create a hostile harmonic environment that cascades through the entire site, but the real daily cost is paid at the <strong>low-voltage level</strong> &mdash; conveyor drives, pump stations, processing auxiliaries, ventilation fans, compressed air systems, dewatering pumps, and camp power. These LV loads suffer power factors below 0.80, voltage THD above 8%, and chronic equipment failures.</p>
 
-<div class="key-stat"><div class="number">$2.2M</div><div class="caption">Typical annual savings for a 25 MW copper mine &mdash; from penalty elimination, loss reduction, and fewer equipment failures</div></div>
+<div class="key-stat"><div class="number">$2.2M</div><div class="caption">Typical annual savings on LV-addressable loads at a 25 MW mining operation &mdash; from penalty elimination, loss reduction, and fewer equipment failures</div></div>
 
-<h2>What Causes It</h2><div class="section-title">Cyclic Loads, Weak Grids, and Harmonic Chaos</div>
-<p>Large grinding mills (2&ndash;25 MW) driven by cycloconverters generate not just standard harmonics but <strong>interharmonics</strong> &mdash; distortion at non-integer multiples of 50/60 Hz that tuned filters fundamentally cannot address. Hoists and winders create massive cyclic demand swings. Crushers produce severe starting transients that depress voltage across the entire site.</p>
+<h2>What Causes It</h2><div class="section-title">MV Harmonic Chaos Cascades to LV Equipment</div>
+<p>Large grinding mills (2&ndash;25 MW) driven by cycloconverters generate not just standard harmonics but <strong>interharmonics</strong> &mdash; distortion at non-integer multiples of 50/60 Hz. This distortion propagates through step-down transformers to the LV distribution network, where it combines with harmonics from VFD-driven conveyors and processing equipment. Hoists and winders create massive cyclic demand swings. Crushers produce severe starting transients that depress voltage site-wide.</p>
 
 <details class="tech-toggle"><summary>Why traditional filters fail in mining <span class="toggle-cta"><span class="label-closed">+ Read more</span><span class="label-open">&minus; Close</span></span></summary><div class="detail">
 <p>Tuned passive filters are designed for specific harmonic orders (typically 5th and 7th from 6-pulse rectifiers). But cycloconverter-driven mills produce a continuously varying spectrum including interharmonics that fall between standard orders. Temperature and ageing cause detuning over time. And large reactive power swings from hoists and crushers create resonance risk with any passive filter. Only active, software-controlled compensation can track and cancel this dynamic spectrum in real time.</p>
 </div></details>
 
 <h2>The Solution</h2><div class="section-title">How HarmoniQ Works</div>
-<p>HarmoniQ uses <strong>patented radio frequency engineering</strong> to maintain clean power across your entire distribution network. The system samples electrical conditions 20,000 times per second and dynamically compensates for the chaotic, rapidly-changing loads that define mining operations.</p>
+<p>HarmoniQ deploys at the <strong>low-voltage (&le;600V) distribution level</strong> &mdash; motor control centres, conveyor drives, pump stations, and processing auxiliaries. Its proprietary narrowband tuning technology samples 20,000 times per second and dynamically compensates for the chaotic harmonic environment that MV mill loads inject into the LV network.</p>
+<p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 12px; font-style: italic;">A medium-voltage product (up to 14kV) is in development for direct deployment on large mill and crusher circuits.</p>
 
 <div class="tier-grid">
 <div class="tier-card"><div class="tier-body"><div class="tier-name">Tier 1</div><div class="tier-title">HarmoniQ Filter</div>
 <p>Tracks and cancels the dynamic harmonic spectrum from cycloconverters, rectifiers, and VFDs in real time &mdash; including the interharmonics that passive filters miss. Reduces THD below 5% at the point of common coupling.</p></div><div class="tier-img"><img src="../assets/harmoniq-filter.png" alt="HarmoniQ Filter" /></div></div>
-<div class="tier-card"><div class="tier-body"><div class="tier-name">Tier 2</div><div class="tier-title">HarmoniQ 600 HarmoniQ Alpha</div>
-<p>Stabilises voltage during crusher starts, hoist cycling, and mill load variations with 20,000 impedance adjustments per second. Protects SCADA, protection relays, and process control from false trips and lost production.</p></div><div class="tier-img"><img src="../assets/harmoniq-alpha.png" alt="HarmoniQ 600 HarmoniQ Alpha" /></div></div>
+<div class="tier-card"><div class="tier-body"><div class="tier-name">Tier 2</div><div class="tier-title">HarmoniQ Alpha</div>
+<p>Stabilises voltage during crusher starts, hoist cycling, and mill load variations with 20,000 impedance adjustments per second. Protects SCADA, protection relays, and process control from false trips and lost production.</p></div><div class="tier-img"><img src="../assets/harmoniq-alpha.png" alt="HarmoniQ Alpha" /></div></div>
 <div class="tier-card"><div class="tier-body"><div class="tier-name">Tier 3</div><div class="tier-title">HarmoniQ Booster</div>
 <p>Drives power factor from 0.65&ndash;0.80 to <strong>0.98+</strong>, eliminating massive reactive power flows. Responds dynamically to rapid PF variations from cyclic loads &mdash; unlike static capacitor banks that can&rsquo;t keep up with a hoist cycle.</p></div><div class="tier-img"><img src="../assets/harmoniq-booster.png" alt="HarmoniQ Booster" /></div></div>
 </div>

@@ -76,33 +76,34 @@
 
 <div class="article-body">
 
-<h2>The Problem</h2><div class="section-title">The Most Power-Hungry, Power-Hostile Sector</div>
-<p>Steel and metals operations &mdash; particularly EAF mills &mdash; are the most electrically intensive and power-quality-challenged facilities in any industry. A single EAF draws 50&ndash;100 MW with a chaotic, continuously varying harmonic spectrum that no tuned filter can track. The arc&rsquo;s negative resistance characteristic generates distortion across every harmonic order.</p>
+<h2>The Problem</h2><div class="section-title">The Most Power-Hostile Electrical Environment in Industry</div>
+<p>Steel and metals operations create extreme power-quality challenges. Electric arc furnaces (EAFs) at 50&ndash;100 MW inject chaotic, broadband harmonic distortion into the plant&rsquo;s electrical network. This distortion propagates downstream to every low-voltage load on site &mdash; rolling mill drives, crane VFDs, compressed air systems, cooling plants, furnace auxiliaries, and the LV distribution network that feeds them all.</p>
 
-<div class="key-stat"><div class="number">$6.6M</div><div class="caption">Typical annual savings for an EAF steel mill</div></div>
+<div class="key-stat"><div class="number">$6.6M</div><div class="caption">Typical annual savings on LV-addressable loads at an EAF steel mill</div></div>
 
-<h2>What Causes It</h2><div class="section-title">Arc Furnace Chaos and the Limits of SVCs</div>
-<p>Unlike VFDs with predictable harmonics, EAFs generate a <strong>continuously varying spectrum</strong> that changes from cycle to cycle. During bore-down, maximum distortion with sub-harmonics. During refining, the spectrum shifts. Traditional SVCs address voltage flicker but don&rsquo;t eliminate broadband harmonic distortion on downstream distribution.</p>
+<h2>What Causes It</h2><div class="section-title">EAF Harmonics Cascade Through the LV Network</div>
+<p>Unlike VFDs with predictable harmonics, EAFs generate a <strong>continuously varying spectrum</strong> that changes from cycle to cycle. This distortion flows downstream through transformers to the LV distribution, where it overheats motor windings, de-rates transformers, trips sensitive automation, and inflates energy losses across every cable run. Traditional SVCs address voltage flicker at the MV bus but don&rsquo;t eliminate the broadband harmonic distortion that reaches LV equipment.</p>
 
 <details class="tech-toggle"><summary>Why tuned filters can&rsquo;t solve this <span class="toggle-cta"><span class="label-closed">+ Read more</span><span class="label-open">&minus; Close</span></span></summary><div class="detail">
 <p>Tuned passive filters target specific harmonic orders. But the EAF spectrum is broadband and continuously varying &mdash; energy at every frequency, including interharmonics between standard orders. Passive filters also detune with temperature and ageing, and create resonance risk. Only active, software-controlled compensation can track and cancel a dynamic spectrum in real time. HarmoniQ responds in under 100 microseconds, continuously adapting.</p>
 </div></details>
 
 <h2>The Solution</h2><div class="section-title">How HarmoniQ Works</div>
-<p>HarmoniQ&rsquo;s <strong>patented radio frequency technology</strong> tracks and cancels the dynamic harmonic spectrum of arc furnaces, rolling mills, and smelters in real time. It complements existing SVC installations by addressing downstream distortion SVCs don&rsquo;t reach.</p>
+<p>HarmoniQ deploys at the <strong>low-voltage (&le;600V) distribution level</strong> &mdash; motor control centres, rolling mill auxiliaries, crane drives, and building services. Its proprietary narrowband tuning technology tracks and cancels the harmonic distortion that EAFs inject into the LV network, complementing existing SVC installations by addressing downstream distortion SVCs don&rsquo;t reach.</p>
+<p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 12px; font-style: italic;">A medium-voltage product (up to 14kV) is in development and will extend HarmoniQ&rsquo;s reach to primary process loads including EAF supply.</p>
 
 <div class="tier-grid">
 <div class="tier-card"><div class="tier-body"><div class="tier-name">Tier 1</div><div class="tier-title">HarmoniQ Filter</div>
 <p>Tracks and cancels the dynamic, non-characteristic harmonic spectrum of arc furnaces in real time. Reduces THD below 5% at the PCC.</p></div><div class="tier-img"><img src="../assets/harmoniq-filter.png" alt="HarmoniQ Filter" /></div></div>
-<div class="tier-card"><div class="tier-body"><div class="tier-name">Tier 2</div><div class="tier-title">HarmoniQ 600 HarmoniQ Alpha</div>
-<p>Mitigates voltage flicker, reducing Pst values to within grid compliance limits. Protects rolling mill drives, caster controls, and quality instrumentation.</p></div><div class="tier-img"><img src="../assets/harmoniq-alpha.png" alt="HarmoniQ 600 HarmoniQ Alpha" /></div></div>
+<div class="tier-card"><div class="tier-body"><div class="tier-name">Tier 2</div><div class="tier-title">HarmoniQ Alpha</div>
+<p>Mitigates voltage flicker, reducing Pst values to within grid compliance limits. Protects rolling mill drives, caster controls, and quality instrumentation.</p></div><div class="tier-img"><img src="../assets/harmoniq-alpha.png" alt="HarmoniQ Alpha" /></div></div>
 <div class="tier-card"><div class="tier-body"><div class="tier-name">Tier 3</div><div class="tier-title">HarmoniQ Booster</div>
 <p>Dynamic PF correction tracking rapid power factor variations across the heat cycle, maintaining <strong>0.98+</strong> from bore-down through refining.</p></div><div class="tier-img"><img src="../assets/harmoniq-booster.png" alt="HarmoniQ Booster" /></div></div>
 </div>
 
 <h2>The Impact</h2><div class="section-title">What This Means for Your Mill</div>
 
-<div class="exhibit"><div class="exhibit-label"><span class="num">Savings Snapshot</span><span class="desc">EAF steel mill &mdash; 2x 50 MW furnaces, $44.5M annual electricity cost</span></div>
+<div class="exhibit"><div class="exhibit-label"><span class="num">Savings Snapshot</span><span class="desc">EAF steel mill &mdash; LV-addressable loads (rolling mills, auxiliaries, distribution), $44.5M total site cost</span></div>
 <table><tr><th>Metric</th><th>Before</th><th>After HarmoniQ</th><th>Improvement</th></tr>
 <tr><td>Power factor</td><td>0.73</td><td>0.98</td><td>+34.2%</td></tr>
 <tr><td>Voltage THD at PCC</td><td>9.5%</td><td>3.8%</td><td>&minus;60%</td></tr>
