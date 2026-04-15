@@ -837,6 +837,13 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 @keyframes roiBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
 @media (max-width: 900px) { .roi-scroll-prompt { display: block; } }
 
+/* ── Technical Reference Card ──────────────────────────────── */
+.tech-ref-card:hover { border-color: rgba(255,255,255,0.25) !important; box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+@media (max-width: 640px) {
+  .tech-ref-card { flex-direction: column; align-items: flex-start !important; padding: 24px 20px !important; gap: 16px !important; }
+  .tech-ref-card > div:last-child { align-self: flex-start; }
+}
+
 /* ── Waveform Morph Panel ───────────────────────────────────── */
 .wf-narrative {
   display: flex; align-items: center;
