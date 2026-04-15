@@ -17,7 +17,7 @@
   <meta name="twitter:title" content="Harmonics: The Silent Equipment Killer | HarmoniQ Technologies" />
   <meta name="twitter:description" content="Harmonic currents from VFDs, UPS, and rectifiers silently waste 3-8% of facility energy and halve equipment life. What they are and how to fix them." />
   <link rel="stylesheet" href="../css/main.css?v=21" />
-  <link rel="stylesheet" href="../css/articles.css?v=5" />
+  <link rel="stylesheet" href="../css/articles.css?v=6" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
@@ -193,10 +193,10 @@
 
   <p>Five internationally recognised standards define the limits, measurement methods, and equipment tolerance requirements for harmonic content in industrial power networks.</p>
 
-  <h3>IEEE 519-2022</h3>
+  <h3 id="ieee-519">IEEE 519-2022</h3>
   <p><strong>IEEE Recommended Practice and Requirements for Harmonic Control in Electric Power Systems.</strong> The definitive standard for THD limits at the <em>point of common coupling</em> (PCC) &mdash; the boundary between the utility and the facility. IEEE 519 specifies voltage-distortion limits (typically &le; 5% THD-V for medium-voltage systems) and current-distortion limits that scale with the short-circuit ratio of the installation. Compliance with IEEE 519 is contractually required on an increasing share of industrial utility connections.</p>
 
-  <h3>IEC 61000 series</h3>
+  <h3 id="iec-61000">IEC 61000 series</h3>
   <p><strong>Electromagnetic Compatibility.</strong> The international framework for emission limits and measurement methods. Key parts for industrial facilities:</p>
   <ul style="margin: 12px 0 20px 20px; font-size: 1rem; line-height: 1.8; color: var(--text-secondary);">
     <li><strong>IEC 61000-3-2</strong>: Harmonic emission limits for equipment drawing &le; 16 A per phase.</li>
@@ -205,7 +205,7 @@
     <li><strong>IEC 61000-4-30</strong>: The authoritative standard for power-quality measurement, defining Class A instruments used by most national grids for compliance verification.</li>
   </ul>
 
-  <h3>IEEE C57.110-2018</h3>
+  <h3 id="c57110">IEEE C57.110-2018</h3>
   <p><strong>Recommended Practice for Establishing Liquid-Immersed and Dry-Type Power and Distribution Transformer Capability When Supplying Nonsinusoidal Load Currents.</strong> Defines the K-factor methodology used to derate transformers under harmonic load. A K-1 transformer is rated for clean linear load; K-4 is typical for modern commercial; K-13 for heavy industrial; K-20+ for data centres with legacy UPS topologies.</p>
 
   <h3>IEEE 1459-2010</h3>
