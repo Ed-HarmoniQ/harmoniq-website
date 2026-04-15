@@ -838,13 +838,28 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 @media (max-width: 900px) { .roi-scroll-prompt { display: block; } }
 
 /* ── Technical Reference Card ──────────────────────────────── */
-.tech-ref-card { transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease !important; }
-.tech-ref-card:hover { border-color: var(--accent) !important; box-shadow: 0 0 0 1px var(--accent), 0 8px 32px rgba(0,0,0,0.5) !important; transform: translateY(-2px); }
-.tech-ref-card .tech-ref-arrow { transition: transform 0.2s ease; }
+.tech-ref-card { transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; }
+/* base text colours */
+.tech-ref-eyebrow { color: var(--accent); }
+.tech-ref-title   { color: #ffffff; }
+.tech-ref-desc    { color: rgba(255,255,255,0.55); }
+.tech-ref-cta     { color: var(--accent); }
+.tech-ref-eyebrow, .tech-ref-title, .tech-ref-desc, .tech-ref-cta { transition: color 0.25s ease; }
+.tech-ref-icon-wrap { transition: background 0.25s ease; }
+.tech-ref-icon-svg  { transition: stroke 0.25s ease; }
+.tech-ref-arrow     { transition: transform 0.25s ease; }
+/* hover: light green wash — text flips to dark for contrast */
+.tech-ref-card:hover { background: #d4edde !important; border-color: var(--accent) !important; box-shadow: 0 0 0 1px var(--accent), 0 8px 32px rgba(26,122,68,0.2) !important; transform: translateY(-2px); }
+.tech-ref-card:hover .tech-ref-eyebrow { color: #0d5c30; }
+.tech-ref-card:hover .tech-ref-title   { color: #0a1f12; }
+.tech-ref-card:hover .tech-ref-desc    { color: rgba(10,31,18,0.65); }
+.tech-ref-card:hover .tech-ref-cta     { color: #0d5c30; }
+.tech-ref-card:hover .tech-ref-icon-wrap { background: rgba(26,122,68,0.15); }
+.tech-ref-card:hover .tech-ref-icon-svg  { stroke: #0d5c30; }
 .tech-ref-card:hover .tech-ref-arrow { transform: translateX(5px); }
 @media (max-width: 640px) {
   .tech-ref-card { flex-direction: column; align-items: flex-start !important; padding: 24px 20px !important; gap: 16px !important; }
-  .tech-ref-card > div:last-child { align-self: flex-start; }
+  .tech-ref-card .tech-ref-cta { align-self: flex-start; }
 }
 
 /* ── Waveform Morph Panel ───────────────────────────────────── */
