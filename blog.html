@@ -272,16 +272,36 @@
     <div id="featured" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; scroll-margin-top: 100px;" class="reveal">
       <div style="padding: 48px; display: flex; flex-direction: column; justify-content: center;">
         <div style="display: inline-block; padding: 3px 10px; background: var(--accent); font-size: 0.65rem; font-weight: 700; color: #ffffff; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; width: fit-content;">Featured</div>
-        <div class="blog-tag">Renewables</div>
-        <h2 class="h1" style="margin-bottom: 12px;">The Solar Blind Spot: How Clean Energy Creates Dirty Power</h2>
-        <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 24px;">PV inverters inject 3&ndash;15% harmonic distortion into electrical networks, degrading power quality, damaging equipment, and partially eroding the financial return on solar investment. The mechanism, why capacitor banks fail here, and how to solve it.</p>
+        <div class="blog-tag">Power Quality Foundations</div>
+        <h2 class="h1" style="margin-bottom: 12px;">The Seven Sins of Power Quality</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 24px;">Seven distinct physical phenomena corrupt the sine wave in every industrial electricity supply. Each one costs money, each one causes damage, each one is correctable. The complete taxonomy &mdash; physics, cost, and remedy.</p>
         <div style="display: flex; align-items: center; gap: 16px;">
-          <a href="articles/solar-pv-power-quality.html" class="btn btn-primary btn-sm">Read Article</a>
-          <span style="font-size: 0.8rem; color: var(--text-muted);">14 min read &middot; 13 Apr 2026</span>
+          <a href="articles/seven-sins-power-quality.html" class="btn btn-primary btn-sm">Read Article</a>
+          <span style="font-size: 0.8rem; color: var(--text-muted);">14 min read &middot; 20 Apr 2026</span>
         </div>
       </div>
-      <div style="background: #052e16; min-height: 280px; border-left: 1px solid var(--border-subtle); overflow: hidden; position: relative;">
-        <img loading="lazy" src="assets/blog/solar.jpg" alt="Solar panel array at sunset" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+      <div style="background: #F7F7F7; min-height: 280px; border-left: 1px solid var(--border-subtle); overflow: hidden; position: relative; display: flex; flex-direction: column;">
+        <div style="background: #0A0B0E; color: #EEF2FF; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;">
+          <span>The Seven Sins</span>
+          <span style="color: #00C47A;">Power Quality Taxonomy</span>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; padding: 20px;">
+          <div style="display:flex; justify-content:center; align-items:center; gap:12px;">
+            <img loading="lazy" src="assets/blog/distortion-icons/01-transients.svg" alt="Transients" style="flex:1; min-width:0; max-width:128px; height:auto; display:block;" />
+            <img loading="lazy" src="assets/blog/distortion-icons/02-harmonics.svg" alt="Harmonics" style="flex:1; min-width:0; max-width:128px; height:auto; display:block;" />
+            <img loading="lazy" src="assets/blog/distortion-icons/03-reactive-power.svg" alt="Reactive Power" style="flex:1; min-width:0; max-width:128px; height:auto; display:block;" />
+            <img loading="lazy" src="assets/blog/distortion-icons/04-flicker.svg" alt="Flicker" style="flex:1; min-width:0; max-width:128px; height:auto; display:block;" />
+          </div>
+          <div style="display:flex; justify-content:center; align-items:center; gap:12px;">
+            <img loading="lazy" src="assets/blog/distortion-icons/05-oscillations.svg" alt="Oscillations" style="flex:1; min-width:0; max-width:128px; height:auto; display:block;" />
+            <img loading="lazy" src="assets/blog/distortion-icons/06-voltage-variations.svg" alt="Voltage Variations" style="flex:1; min-width:0; max-width:128px; height:auto; display:block;" />
+            <img loading="lazy" src="assets/blog/distortion-icons/07-network-unbalance.svg" alt="Network Unbalance" style="flex:1; min-width:0; max-width:128px; height:auto; display:block;" />
+          </div>
+        </div>
+        <div style="background: #0A0B0E; color: #8790A0; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;">
+          <span>I · II · III · IV · V · VI · VII</span>
+          <span>HarmoniQ Research</span>
+        </div>
       </div>
     </div>
 
@@ -435,6 +455,20 @@
     </div>
 
     <div class="blog-grid" id="blogGrid">
+      <a href="articles/solar-pv-power-quality.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
+        <div class="blog-thumb" style="background: #052e16; padding: 0; position: relative;">
+          <img src="assets/blog/solar.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,14,0.65) 0%, rgba(10,11,14,0.15) 40%, rgba(10,11,14,0) 70%, rgba(10,11,14,0.5) 100%); pointer-events: none;"></div>
+          <span class="blog-thumb-label" style="color: rgba(255,255,255,0.95); z-index: 2; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">Renewables</span>
+        </div>
+        <div class="blog-body">
+          <div class="blog-tag">Renewables</div>
+          <h3 class="h3" style="margin-bottom: 8px;">The Solar Blind Spot: How Clean Energy Creates Dirty Power</h3>
+          <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65;">PV inverters inject 3&ndash;15% harmonic distortion into electrical networks, degrading power quality, damaging equipment, and partially eroding the financial return on solar investment.</p>
+          <div class="blog-date">14 min read &middot; 13 Apr 2026</div>
+        </div>
+      </a>
+
       <a href="articles/proving-energy-savings.html" class="blog-card reveal" style="text-decoration:none; color:inherit;">
         <div class="blog-thumb" style="background: #0A0B0E; padding: 0; position: relative;">
           <img src="assets/blog/weather.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" />
