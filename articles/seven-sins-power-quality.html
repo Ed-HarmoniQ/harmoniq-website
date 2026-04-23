@@ -55,30 +55,9 @@
   
   
 
-  /* HERO */
-  .hero { max-width:780px; margin:0 auto; padding:80px 40px 56px; }
-  .hero-tag {
-    font-size:11px; font-weight:700; text-transform:uppercase;
-    letter-spacing:2.5px; color:var(--green); margin-bottom:28px;
-  }
-  .hero h1 {
-    font-size:56px; font-weight:800; color:var(--black);
-    line-height:1.05; letter-spacing:-2.2px; margin-bottom:28px;
-  }
-  .hero h1 em { font-style:normal; color:var(--green-dark); }
-  .hero-sub {
-    font-size:19px; font-weight:400; color:var(--secondary);
-    line-height:1.7; max-width:640px;
-  }
-  .hero-meta {
-    margin-top:48px; padding-top:24px; border-top:1px solid var(--rule);
-    display:flex; flex-wrap:wrap; gap:28px;
-    font-size:12px; font-weight:500; color:var(--tertiary); letter-spacing:0.3px;
-  }
-
   /* CONTENTS */
   .toc {
-    max-width:780px; margin:0 auto; padding:0 40px 48px;
+    max-width:680px; margin:0 auto; padding:40px 40px 48px;
   }
   .toc-label {
     font-size:11px; font-weight:700; text-transform:uppercase;
@@ -108,7 +87,7 @@
   }
 
   /* ARTICLE */
-  .article { max-width:780px; margin:0 auto; padding:0 40px 80px; }
+  .article { max-width:680px; margin:0 auto; padding:0 40px 80px; }
   .lede {
     font-size:22px; font-weight:300; color:var(--dark);
     line-height:1.55; letter-spacing:-0.3px;
@@ -300,7 +279,6 @@
   
 
   @media (max-width:720px) {
-    .hero h1 { font-size:40px; letter-spacing:-1.5px; }
     .lede { font-size:19px; }
     .sin-head { flex-direction:column; gap:20px; }
     .sin-icon { width:120px; height:78px; }
@@ -357,20 +335,24 @@
 </div>
 
 <main id="main">
-<div class="article-back" style="max-width:780px; margin:0 auto; padding:40px 40px 0;">
-  <a href="../blog.html">&larr; Back to Insights</a>
-</div>
-<section class="hero">
-  <div class="hero-tag">Research · Power Quality Foundations</div>
-  <h1>The Seven Sins<br>of <em>Power Quality</em>.</h1>
-  <p class="hero-sub">Every industrial facility pays for power it never uses. Seven distinct physical phenomena corrupt the sine wave between the utility and the load &mdash; each causes a different kind of damage, each carries a different kind of cost, and each demands a different kind of remedy. This is the complete taxonomy.</p>
-  <div class="hero-meta">
-    <span>HarmoniQ Technologies Research</span>
-    <span>April 2026</span>
-    <span>~14 min read</span>
-    <span>Rev A</span>
+<div class="article-hero">
+  <div class="article-hero-inner">
+    <div class="article-hero-tag">Power Quality Foundations</div>
+    <h1>The Seven Sins of Power Quality</h1>
+    <p class="article-hero-sub">Seven distinct physical phenomena corrupt the sine wave between the utility and the load &mdash; each causes a different kind of damage, each carries a different kind of cost, and each demands a different kind of remedy. This is the complete taxonomy.</p>
+    <div class="article-hero-meta">
+      <span>HarmoniQ Engineering Team</span>
+      <span>14 min read</span>
+      <span>April 2026</span>
+    </div>
   </div>
-</section>
+</div>
+
+<div style="padding-top: 40px;">
+  <div class="article-back">
+    <a href="../blog.html">&larr; Back to Insights</a>
+  </div>
+</div>
 <section class="toc">
   <div class="toc-label">Contents</div>
   <div class="toc-grid">
