@@ -437,7 +437,7 @@
     },
     {
       title: 'Is the technology patented?',
-      description: 'Yes — HarmoniQ\'s Electrical Current Balancing System is protected by granted patents.',
+      description: 'Yes — the core technology behind HarmoniQ\'s hardware is protected by granted patents.',
       url: 'faq.html#faq-is-the-technology-patented',
       category: 'FAQ',
       keywords: 'patented technology patent protected intellectual property ip granted'
