@@ -650,7 +650,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 /* ── About Page Founders ───────────────────────────────────── */
 .about-founders {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 28px;
   margin-bottom: 48px;
 }
