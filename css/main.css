@@ -757,14 +757,14 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
   padding-right: 14px;
 }
 .pedigree-logo:nth-child(1) .pedigree-logo-img {
-  max-height: 46px;
+  max-height: 38px;
 }
 .pedigree-logo:nth-child(3) .pedigree-logo-img,
 .pedigree-logo:nth-child(7) .pedigree-logo-img {
-  max-height: 52px;
+  max-height: 44px;
 }
 .pedigree-logo:nth-child(8) .pedigree-logo-img {
-  max-height: 68px;
+  max-height: 64px;
 }
 
 /* ── CTA Section ───────────────────────────────────────────── */
