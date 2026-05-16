@@ -736,7 +736,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 .pedigree-logo-text { font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-align: center; line-height: 1.3; transition: var(--transition); }
 .pedigree-logo:hover .pedigree-logo-text { color: var(--text-secondary); }
 .pedigree-logo-img {
-  max-height: 52px;
+  max-height: 64px;
   max-width: 100%;
   width: auto;
   object-fit: contain;
@@ -746,9 +746,10 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 .pedigree-logo:hover .pedigree-logo-img {
   filter: grayscale(0%) opacity(1);
 }
-/* Cambridge logo is taller/denser — give it more room */
+/* MIT and Cambridge logos are taller/denser — give them more room */
+.pedigree-logo:nth-child(3) .pedigree-logo-img,
 .pedigree-logo:nth-child(4) .pedigree-logo-img {
-  max-height: 80px;
+  max-height: 84px;
 }
 
 /* ── CTA Section ───────────────────────────────────────────── */
