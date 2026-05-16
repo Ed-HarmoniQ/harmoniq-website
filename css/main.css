@@ -736,7 +736,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 .pedigree-logo-text { font-size: 0.82rem; font-weight: 700; color: var(--text-muted); text-align: center; line-height: 1.3; transition: var(--transition); }
 .pedigree-logo:hover .pedigree-logo-text { color: var(--text-secondary); }
 .pedigree-logo-img {
-  max-height: 60px;
+  max-height: 54px;
   max-width: 100%;
   width: auto;
   object-fit: contain;
@@ -748,7 +748,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 }
 /* Cambridge logo (square) — give it more room */
 .pedigree-logo:nth-child(4) .pedigree-logo-img {
-  max-height: 86px;
+  max-height: 78px;
 }
 /* MIT (3), Alstom (7) are wide and width-limited — trim cell padding so they appear larger */
 .pedigree-logo:nth-child(3),
@@ -759,7 +759,7 @@ nav.scrolled { background: rgba(10, 11, 14, 0.97); }
 .pedigree-logo:nth-child(3) .pedigree-logo-img,
 .pedigree-logo:nth-child(7) .pedigree-logo-img,
 .pedigree-logo:nth-child(8) .pedigree-logo-img {
-  max-height: 76px;
+  max-height: 68px;
 }
 
 /* ── CTA Section ───────────────────────────────────────────── */
